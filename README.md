@@ -1,8 +1,8 @@
 # Recommendations project
 
 This project is aimed at organizations that can leverage it
-for recruitment and advertisement. It allows the registered users, as well
-as to invite potential customers and candidates for various rewards.
+for recruitment and advertisement. It allows the registered users 
+to invite potential customers for various rewards.
 
 ## Resources
 
