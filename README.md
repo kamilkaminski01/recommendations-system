@@ -1,3 +1,20 @@
+# Recommendations project
+
+This project is aimed at organizations that can leverage it
+for recruitment and advertisement. It allows the registered users, as well
+as to invite potential customers and candidates for various rewards.
+
+## Resources
+
+User interface mocks are managed on
+[Figma](https://www.figma.com/).
+
+Issue tracking is currently handled by
+[Jira](https://www.atlassian.com/pl/software/jira).
+
+The code repository is hosted on
+[GitHub](https://github.com/Dimateos12/Project-recommendations).
+
 ## Code quality standards
 
 The `main` is the stable branch used for releases.
