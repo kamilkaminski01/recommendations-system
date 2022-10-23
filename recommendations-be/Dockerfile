@@ -1,12 +1,18 @@
-FROM python:3.10.8-slim-buster
+FROM python:3.10-alpine
 
 ENV PYTHONUNBUFFERED 1
 
-WORKDIR /django
+RUN apk update \
+    && apk add postgresql-dev gcc python3-dev musl-dev
+RUN pip install --upgrade pip pipenv
 
-COPY requirements.txt requirements.txt
-
-RUN pip install --upgrade pip --no-cache-dir
-RUN pip install -r requirements.txt --no-cache-dir
+WORKDIR /recommendations-be
+COPY ./Pipfile* ./
+RUN pipenv sync
 
 COPY . .
+
+COPY ./entrypoint.sh /entrypoint.sh
+RUN chmod o+x /entrypoint.sh
+
+ENTRYPOINT ["sh", "-c", "/entrypoint.sh"]
