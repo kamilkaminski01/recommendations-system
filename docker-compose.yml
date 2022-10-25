@@ -5,12 +5,12 @@ services:
     container_name: db
     image: "postgres:14.1-alpine"
     environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_USER=admin
+      - POSTGRES_DB=project_database
+      - POSTGRES_USER=databaseadmin
       - POSTGRES_PASSWORD=Admin-123
 
   django:
-    container_name: recommendations-be
+    container_name: backend
     build:
       context: ./recommendations-be
     env_file:
@@ -18,15 +18,15 @@ services:
     ports:
       - 8000:8000
     volumes:
-      - ./recommendations-be:/recommendations-be
+      - ./recommendations-be:/backend
     depends_on:
       - psql
 
   react:
-    container_name: recommendations-fe
+    container_name: frontend
     build:
       context: ./recommendations-fe
     ports:
       - 3000:3000
     volumes:
-      - ./recommendations-fe/src:/recommendations-fe/src
+      - ./recommendations-fe/src:/frontend/src

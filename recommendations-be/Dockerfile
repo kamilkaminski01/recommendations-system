@@ -6,7 +6,7 @@ RUN apk update \
     && apk add postgresql-dev gcc python3-dev musl-dev
 RUN pip install --upgrade pip pipenv
 
-WORKDIR /recommendations-be
+WORKDIR /backend
 COPY ./Pipfile* ./
 RUN pipenv sync
 
