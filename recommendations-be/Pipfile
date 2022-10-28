@@ -6,9 +6,19 @@ name = "pypi"
 [packages]
 asgiref = "==3.5.2"
 django = "==4.1.2"
+django-cors-headers = "*"
+django-stubs = "==1.12.0"
+django-stubs-ext = "==0.5.0"
+flake8 = "==2.3.0"
+isort = "==5.10.1"
+mccabe = "==0.7.0"
+mypy = "==0.982"
+mypy-extensions = "==0.4.3"
+pep8 = "==1.7.1"
 psycopg2-binary = "==2.9.4"
 sqlparse = "==0.4.3"
-django-cors-headers = "*"
+tomli = "==2.0.1"
+typing_extensions = "==4.4.0"
 
 [dev-packages]
 
