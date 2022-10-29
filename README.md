@@ -6,14 +6,48 @@ to invite potential customers for various rewards.
 
 ## Resources
 
-User interface mocks are managed on
-[Figma](https://www.figma.com/).
-
 Issue tracking is currently handled by
 [Jira](https://www.atlassian.com/pl/software/jira).
 
 The code repository is hosted on
 [GitHub](https://github.com/Dimateos12/Project-recommendations).
+
+## Running from sources
+
+### Docker Compose setup
+
+```bash
+git clone https://github.com/Dimateos12/Project-recommendations
+cd Project-recommendations/
+docker-compose build
+docker-compose up
+```
+
+[Docker Compose](https://docs.docker.com/compose/install/) is leveraged
+for reproducible builds and consistent local development environments.
+The default [`docker-compose.yml`](docker-compose.yml) file is set up
+to support local development with code reload and debug mode.
+
+If `build` doesn't run, uncheck "Use Docker Compose V2" in Docker Desktop settings.
+
+When using a local Python environment, [`pre-commit`](https://pre-commit.com/)
+should be installed and ran on staged files to ensure that the code
+quality standards are met.
+
+### Application setup
+
+After running the application, the following will be created:
+  - global superuser (admin@admin.com)
+
+#### Troubleshooting
+
+In case of errors with typing or missing dependencies, try to rebuild the
+Docker images:
+
+```bash
+docker system prune --all
+docker-compose up --build
+```
 
 ## Code quality standards
 
