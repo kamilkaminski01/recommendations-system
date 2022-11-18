@@ -15,7 +15,7 @@ class CompanyAdmin(User):
 
 
 class Advertisment(models.Model):
-    company = models.ForeignKey(CompanyAdmin, on_delete=models.SET_NULL)
+    company = models.ForeignKey(CompanyAdmin, on_delete=models.SET_NULL, null=True)
     title = models.CharField(max_length=150)
     description = models.TextField(null=True, blank=True)
 
