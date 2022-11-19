@@ -1,9 +1,7 @@
 from django.contrib import admin
-from django.urls import path
-
-from recommenders.views import RecommendersList
+from django.urls import include, path
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("api/recommenders/", RecommendersList.as_view()),
+    path("api/recommenders/", include("recommenders.urls")),
 ]
