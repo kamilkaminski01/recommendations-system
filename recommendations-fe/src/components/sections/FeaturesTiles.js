@@ -2,7 +2,12 @@ import React from 'react';
 import classNames from 'classnames';
 import { SectionTilesProps } from '../../utils/SectionProps';
 import SectionHeader from './partials/SectionHeader';
-import Image from '../elements/Image';
+import RecommendIcon from '@mui/icons-material/Recommend';
+import AssistantIcon from '@mui/icons-material/Assistant';
+import SettingsSuggestIcon from '@mui/icons-material/SettingsSuggest';
+import FeaturedVideoIcon from '@mui/icons-material/FeaturedVideo';
+import AssistantPhotoIcon from '@mui/icons-material/AssistantPhoto';
+import AddTaskIcon from '@mui/icons-material/AddTask';
 
 const propTypes = {
   ...SectionTilesProps.types
@@ -62,11 +67,7 @@ const FeaturesTiles = ({
               <div className="tiles-item-inner">
                 <div className="features-tiles-item-header">
                   <div className="features-tiles-item-image mb-16">
-                    <Image
-                      src={require('./../../assets/images/feature-tile-icon-01.svg')}
-                      alt="Features tile icon 01"
-                      width={64}
-                      height={64} />
+                  <RecommendIcon fontSize="large" />
                   </div>
                 </div>
                 <div className="features-tiles-item-content">
@@ -84,11 +85,7 @@ const FeaturesTiles = ({
               <div className="tiles-item-inner">
                 <div className="features-tiles-item-header">
                   <div className="features-tiles-item-image mb-16">
-                    <Image
-                      src={require('./../../assets/images/feature-tile-icon-02.svg')}
-                      alt="Features tile icon 02"
-                      width={64}
-                      height={64} />
+                  <AssistantIcon fontSize='large' />
                   </div>
                 </div>
                 <div className="features-tiles-item-content">
@@ -106,11 +103,7 @@ const FeaturesTiles = ({
               <div className="tiles-item-inner">
                 <div className="features-tiles-item-header">
                   <div className="features-tiles-item-image mb-16">
-                    <Image
-                      src={require('./../../assets/images/feature-tile-icon-03.svg')}
-                      alt="Features tile icon 03"
-                      width={64}
-                      height={64} />
+                  <SettingsSuggestIcon fontSize='large' />
                   </div>
                 </div>
                 <div className="features-tiles-item-content">
@@ -128,11 +121,7 @@ const FeaturesTiles = ({
               <div className="tiles-item-inner">
                 <div className="features-tiles-item-header">
                   <div className="features-tiles-item-image mb-16">
-                    <Image
-                      src={require('./../../assets/images/feature-tile-icon-04.svg')}
-                      alt="Features tile icon 04"
-                      width={64}
-                      height={64} />
+                 < FeaturedVideoIcon fontSize='large'/>
                   </div>
                 </div>
                 <div className="features-tiles-item-content">
@@ -150,11 +139,7 @@ const FeaturesTiles = ({
               <div className="tiles-item-inner">
                 <div className="features-tiles-item-header">
                   <div className="features-tiles-item-image mb-16">
-                    <Image
-                      src={require('./../../assets/images/feature-tile-icon-05.svg')}
-                      alt="Features tile icon 05"
-                      width={64}
-                      height={64} />
+                  <AssistantPhotoIcon fontSize='large' />
                   </div>
                 </div>
                 <div className="features-tiles-item-content">
@@ -172,11 +157,7 @@ const FeaturesTiles = ({
               <div className="tiles-item-inner">
                 <div className="features-tiles-item-header">
                   <div className="features-tiles-item-image mb-16">
-                    <Image
-                      src={require('./../../assets/images/feature-tile-icon-06.svg')}
-                      alt="Features tile icon 06"
-                      width={64}
-                      height={64} />
+                  <AddTaskIcon fontSize='large'/>
                   </div>
                 </div>
                 <div className="features-tiles-item-content">
