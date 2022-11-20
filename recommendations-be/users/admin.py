@@ -1,3 +1,70 @@
-# from django.contrib import admin
+from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
 
-# Register your models here.
+from .models import User
+
+
+class UsersAdmin(UserAdmin):
+    exclude = ("username",)
+    readonly_fields = ["date_joined", "last_login"]
+    ordering = ("email",)
+
+    add_fieldsets = (
+        (
+            "General",
+            {
+                "classes": ("wide",),
+                "fields": [
+                    "email",
+                    "first_name",
+                    "last_name",
+                    "address",
+                    "password1",
+                    "password2",
+                ],
+            },
+        ),
+        (
+            "Advanced options",
+            {
+                "classes": ("collapse",),
+                "fields": [
+                    "is_staff",
+                    "is_active",
+                    "date_joined",
+                    "last_login",
+                ],
+            },
+        ),
+    )
+
+    fieldsets = (
+        (
+            "General",
+            {
+                "classes": ("wide",),
+                "fields": [
+                    "email",
+                    "first_name",
+                    "last_name",
+                    "address",
+                    "password",
+                ],
+            },
+        ),
+        (
+            "Advanced options",
+            {
+                "classes": ("collapse",),
+                "fields": [
+                    "is_staff",
+                    "is_active",
+                    "date_joined",
+                    "last_login",
+                ],
+            },
+        ),
+    )
+
+
+admin.site.register(User, UsersAdmin)
