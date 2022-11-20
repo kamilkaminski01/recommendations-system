@@ -1,13 +1,8 @@
 from django.urls import path
 
-from .views import RecommenderDetailedAPIView, RecommendersAPIView, RecommendersList
+from .views import RecommenderListAPIView, RecommendersAPIView
 
 urlpatterns = [
-    path("", RecommendersAPIView.as_view(), name="recommenders_api"),
-    path("list/", RecommendersList.as_view(), name="recommenders_api_list"),
-    path(
-        "<int:pk>",
-        RecommenderDetailedAPIView.as_view(),
-        name="recommender_detailed_api",
-    ),
+    path("", RecommenderListAPIView.as_view(), name="recommenders_list_api"),
+    path("<int:pk>/", RecommendersAPIView.as_view(), name="recommenders_api"),
 ]
