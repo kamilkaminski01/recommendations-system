@@ -1,5 +1,6 @@
 from django.contrib import admin
 
-from shop.models import Reward
+from .models import Image, Reward
 
 admin.site.register(Reward)
+admin.site.register(Image)

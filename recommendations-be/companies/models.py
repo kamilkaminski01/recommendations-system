@@ -10,8 +10,8 @@ class CompanyAdmin(User):
         return self.company
 
     class Meta:
-        verbose_name = "CompanyAdmin"
-        verbose_name_plural = "CompanyAdmins"
+        verbose_name = "Company Admin"
+        verbose_name_plural = "Company Admins"
 
 
 class Advertisment(models.Model):
