@@ -40,7 +40,7 @@ class Image(models.Model):
     )
 
     def __str__(self):
-        return Image._meta.verbose_name.title()
+        return self.reward.title
 
     class Meta:
         verbose_name = "Image"
