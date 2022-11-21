@@ -2,12 +2,11 @@ from textwrap import shorten
 
 from django.db import models
 
-from shop.utils import hash_file, validate_file_extension
+from .utils import validate_file_extension
 
 
 def upload_to_rewards(instance, filename: str) -> str:
-    hashed_file = hash_file(instance.image.open())
-    return f"rewards/{instance.reward.id}/{hashed_file}/{filename}"
+    return f"rewards/{instance.reward.id}/{filename}"
 
 
 class Reward(models.Model):
