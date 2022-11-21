@@ -4,7 +4,6 @@ from users.models import User
 
 
 class Recommender(User):
-    address = models.TextField(max_length=200, blank=True, null=True)
     current_points = models.PositiveIntegerField(default=0)
     credibility = models.PositiveIntegerField(default=0)
 

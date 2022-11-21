@@ -4,6 +4,7 @@ from users.models import User
 
 
 class CompanyAdmin(User):
+    address = None  # type: ignore
     company = models.CharField(max_length=150)
 
     def __str__(self):

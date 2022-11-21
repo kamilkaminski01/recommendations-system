@@ -6,6 +6,12 @@ from .models import User
 
 class UsersAdmin(UserAdmin):
     exclude = ("username",)
+    list_display = [
+        "email",
+        "first_name",
+        "last_name",
+        "is_staff",
+    ]
     readonly_fields = ["date_joined", "last_login"]
     ordering = ("email",)
 

@@ -8,9 +8,9 @@ from .models import Candidate, Recommender
 
 class RecommenderAdmin(UsersAdmin):
     list_display = [
+        "email",
         "first_name",
         "last_name",
-        "email",
         "current_points",
         "credibility",
     ]
