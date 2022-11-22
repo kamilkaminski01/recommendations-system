@@ -5,12 +5,12 @@ services:
     container_name: db
     image: "postgres:14.1-alpine"
     restart: always
-    env_file:
-      - .env
     environment:
-      - POSTGRES_DB=project_database
-      - POSTGRES_USER=databaseadmin
-      - POSTGRES_PASSWORD=Admin-123
+      - POSTGRES_DB=${PSQL_NAME}
+      - POSTGRES_USER=${PSQL_USER}
+      - POSTGRES_PASSWORD=${PSQL_PASSWORD}
+    ports:
+      - 5432:5432
 
   django:
     container_name: backend
