@@ -1,6 +1,8 @@
 from django.contrib.auth import password_validation
 from rest_framework import serializers
 
+from users.models import User
+
 from .models import Recommender
 
 
@@ -36,19 +38,27 @@ class RecommenderDetailsSerializer(serializers.ModelSerializer):
 
 
 class RecommenderUpdateSerializer(serializers.ModelSerializer):
-    password = serializers.CharField(style={"input_type": "password"}, write_only=True)
-
     class Meta:
         model = Recommender
-        fields = ["email", "first_name", "last_name", "address", "password"]
+        fields = ["email", "first_name", "last_name", "address"]
         read_only_fields = ["email"]
 
-    def update(self, instance, validated_data: dict) -> Recommender:
-        recommender = super().update(validated_data)
+
+class RecommenderNewPasswordSerializer(serializers.ModelSerializer):
+    new_password = serializers.CharField(
+        style={"input_type": "password"}, write_only=True, source="password"
+    )
+
+    def update(self, instance: User, validated_data: dict) -> User:
+        recommender = super().update(instance, validated_data)
         recommender.set_password(validated_data["password"])
         recommender.save()
         return recommender
 
-    def validate_password(self, data: str) -> str:
+    def validate_new_password(self, data: str) -> str:
         password_validation.validate_password(data, self.instance)
         return data
+
+    class Meta:
+        model = Recommender
+        fields = ["new_password"]
