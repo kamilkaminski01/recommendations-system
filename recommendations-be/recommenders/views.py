@@ -1,4 +1,7 @@
+from typing import List
+
 from rest_framework import generics, mixins, status
+from rest_framework.permissions import BasePermission, IsAuthenticated
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.serializers import ModelSerializer
@@ -26,11 +29,17 @@ class RecommenderListCreateAPIView(generics.ListCreateAPIView):
             return RecommenderSerializer
         return RecommenderDetailsSerializer
 
+    def get_permissions(self) -> List[BasePermission]:
+        if self.request.method == "POST":
+            return []
+        return [IsAuthenticated()]
+
 
 class RecommenderDetailsAPIView(
     mixins.RetrieveModelMixin,
     generics.GenericAPIView,
 ):
+    permission_classes = [IsAuthenticated]
     queryset = Recommender.objects.all()
     serializer_class = RecommenderDetailsSerializer
 
@@ -43,6 +52,7 @@ class RecommenderUpdateAPIView(
     mixins.UpdateModelMixin,
     generics.GenericAPIView,
 ):
+    permission_classes = [IsAuthenticated]
     queryset = Recommender.objects.all()
 
     def get(self, request: Request, *args, **kwargs) -> Response:
