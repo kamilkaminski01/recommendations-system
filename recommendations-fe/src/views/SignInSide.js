@@ -15,10 +15,10 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 function Copyright(props) {
   return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
+    <Typography variant="body2" color="white" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
+      <Link color="inherit" href="/">
+        UwB Riders 
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -32,10 +32,13 @@ export default function SignInSide() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    let stateTemp ={
+      data:{
+        email: data.get('email'),
+        password: data.get('password')
+      }
+    };
+    console.log(stateTemp);
   };
 
   return (
@@ -56,7 +59,7 @@ export default function SignInSide() {
             backgroundPosition: 'center',
           }}
         />
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+        <Grid item xs={12}  sx={{bgcolor:'#525252', color:"white"}}sm={8} md={5} component={Paper} elevation={6} square>
           <Box
             sx={{
               my: 8,
@@ -64,12 +67,13 @@ export default function SignInSide() {
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
+             
             }}
           >
             <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
               <LockOutlinedIcon />
             </Avatar>
-            <Typography component="h1" variant="h5" color="black">
+            <Typography component="h1" variant="h5" color="white">
               Sign in
             </Typography>
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
@@ -82,6 +86,7 @@ export default function SignInSide() {
                 name="email"
                 autoComplete="email"
                 autoFocus
+                sx={{ input: { color: 'white' },label: {color: 'white'} }}
               />
               <TextField
                 margin="normal"
@@ -92,6 +97,7 @@ export default function SignInSide() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                sx={{ input: { color: 'white' }, label: {color: 'white'} }}
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}

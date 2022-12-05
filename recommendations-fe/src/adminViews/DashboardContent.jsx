@@ -21,6 +21,13 @@ import { mainListItems, secondaryListItems } from './listItems';
 import Chart from './Chart';
 import Deposits from './Deposits';
 import Orders from './Orders';
+import NightlightIcon from '@mui/icons-material/Nightlight';
+import LightModeIcon from '@mui/icons-material/LightMode';
+
+
+
+
+
 
 function Copyright(props) {
   return (
@@ -81,16 +88,34 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-const mdTheme = createTheme();
 
 function DashboardContent() {
-  const [open, setOpen] = React.useState(true);
+
   const toggleDrawer = () => {
     setOpen(!open);
   };
+  
+  const darkTheme = createTheme({
+    palette: {
+      mode: 'dark',
+    },
+  });
+  
+  const whiteTheme = createTheme({
+    palette: {
+  
+    },
+  });
+
+  const [darkMode, setDarkMode] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
+  const onClick=() =>{
+      {darkMode ? setDarkMode(false): setDarkMode(true)};
+    }
 
   return (
-    <ThemeProvider theme={mdTheme}>
+    <ThemeProvider theme={darkMode ? darkTheme : whiteTheme}>
+      <CssBaseline />
       <Box sx={{ display: 'flex'}}>
         <CssBaseline />
         <AppBar position="absolute" open={open}>
@@ -124,6 +149,16 @@ function DashboardContent() {
               <Badge badgeContent={4} color="secondary">
                 <NotificationsIcon />
               </Badge>
+            </IconButton>
+            <IconButton color="inherit">
+              <Badge color="secondary" onClick={onClick}>
+                {darkMode
+                ?<LightModeIcon titleAccess='Motyw jasny'/>
+                :<NightlightIcon titleAccess='Motyw ciemny'/> 
+              }
+               <Typography >Motyw</Typography>
+              </Badge>
+             
             </IconButton>
           </Toolbar>
         </AppBar>
