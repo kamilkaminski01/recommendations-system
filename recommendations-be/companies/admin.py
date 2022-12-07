@@ -24,5 +24,9 @@ class CompanyAdminAdmin(UsersAdmin):
     form = CompanyAdminForm
 
 
+class AdvertismentAdmin(admin.ModelAdmin):
+    list_display = ["company", "title", "type", "reward_for_approval"]
+
+
 admin.site.register(CompanyAdmin, CompanyAdminAdmin)
-admin.site.register(Advertisment)
+admin.site.register(Advertisment, AdvertismentAdmin)
