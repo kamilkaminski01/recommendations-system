@@ -19,6 +19,20 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
+  "overrides": [
+    {
+      "files": [
+        "package.json",
+        "package-lock.json",
+        ".eslintrc.json",
+        "manifest.json",
+        "node_modules/"
+      ],
+      "rules": {
+        "no-unused-expressions": "off"
+      }
+    }
+  ],
   "plugins": ["react", "@typescript-eslint"],
   "rules": {
     "react/react-in-jsx-scope": "off",
