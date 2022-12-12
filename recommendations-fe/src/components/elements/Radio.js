@@ -8,7 +8,7 @@ const propTypes = {
   value: PropTypes.string,
   disabled: PropTypes.bool,
   checked: PropTypes.bool
-}
+};
 
 const defaultProps = {
   children: null,
@@ -16,22 +16,10 @@ const defaultProps = {
   value: '',
   disabled: false,
   checked: false
-}
+};
 
-const Radio = ({
-  className,
-  children,
-  name,
-  value,
-  disabled,
-  checked,
-  ...props
-}) => {
-
-  const classes = classNames(
-    'form-radio',
-    className
-  );
+const Radio = ({ className, children, name, value, disabled, checked, ...props }) => {
+  const classes = classNames('form-radio', className);
 
   return (
     <label className={classes}>
@@ -46,7 +34,7 @@ const Radio = ({
       {children}
     </label>
   );
-}
+};
 
 Radio.propTypes = propTypes;
 Radio.defaultProps = defaultProps;

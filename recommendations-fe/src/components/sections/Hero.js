@@ -4,11 +4,11 @@ import { SectionProps } from '../../utils/SectionProps';
 
 const propTypes = {
   ...SectionProps.types
-}
+};
 
 const defaultProps = {
   ...SectionProps.defaults
-}
+};
 
 const Hero = ({
   className,
@@ -20,7 +20,6 @@ const Hero = ({
   invertColor,
   ...props
 }) => {
-
   const outerClasses = classNames(
     'hero section center-content',
     topOuterDivider && 'has-top-divider',
@@ -37,10 +36,7 @@ const Hero = ({
   );
 
   return (
-    <section
-      {...props}
-      className={outerClasses}
-    >
+    <section {...props} className={outerClasses}>
       <div className="container-sm">
         <div className={innerClasses}>
           <div className="hero-content">
@@ -49,17 +45,16 @@ const Hero = ({
             </h1>
             <div className="container-xs">
               <p className="m-0 mb-32 reveal-from-bottom" data-reveal-delay="400">
-                Thanks to our innovative platform you will save money  </p>
-              <div className="reveal-from-bottom" data-reveal-delay="600">
-
-              </div>
+                Thanks to our innovative platform you will save money{' '}
+              </p>
+              <div className="reveal-from-bottom" data-reveal-delay="600"></div>
             </div>
           </div>
         </div>
       </div>
     </section>
   );
-}
+};
 
 Hero.propTypes = propTypes;
 Hero.defaultProps = defaultProps;

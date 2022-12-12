@@ -25,7 +25,6 @@ function Copyright(props) {
   );
 }
 
-
 export default function SignUp() {
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -35,22 +34,28 @@ export default function SignUp() {
       lastName: data.get('lastName'),
       email: data.get('email'),
       password: data.get('password'),
-      news: data.get('news'),
+      news: data.get('news')
     });
   };
 
   return (
-    <Grid item xs={12}  sx={{bgcolor:'#525252', color:"white"}}sm={8} md={5}  elevation={6} square>
-      <Container component="main" maxWidth="xs" >
+    <Grid
+      item
+      xs={12}
+      sx={{ bgcolor: '#525252', color: 'white' }}
+      sm={8}
+      md={5}
+      elevation={6}
+      square>
+      <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
           sx={{
             marginTop: 8,
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'center',
-          }}
-        >
+            alignItems: 'center'
+          }}>
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
           </Avatar>
@@ -68,7 +73,7 @@ export default function SignUp() {
                   id="firstName"
                   label="First Name"
                   autoFocus
-                  sx={{ input: { color: 'white' },label: {color: 'white'} }}
+                  sx={{ input: { color: 'white' }, label: { color: 'white' } }}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -79,7 +84,7 @@ export default function SignUp() {
                   label="Last Name"
                   name="lastName"
                   autoComplete="family-name"
-                  sx={{ input: { color: 'white' },label: {color: 'white'} }}
+                  sx={{ input: { color: 'white' }, label: { color: 'white' } }}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -90,7 +95,7 @@ export default function SignUp() {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
-                  sx={{ input: { color: 'white' },label: {color: 'white'} }}
+                  sx={{ input: { color: 'white' }, label: { color: 'white' } }}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -102,25 +107,24 @@ export default function SignUp() {
                   type="password"
                   id="password"
                   autoComplete="new-password"
-                  sx={{ input: { color: 'white' },label: {color: 'white'}, borderColor: 'white' }}
+                  sx={{
+                    input: { color: 'white' },
+                    label: { color: 'white' },
+                    borderColor: 'white'
+                  }}
                 />
               </Grid>
               <Grid item xs={12}>
                 <FormControlLabel
-                  id='news'
-                  name='news'
+                  id="news"
+                  name="news"
                   defaultValue={false}
                   control={<Checkbox value={true} color="primary" sx={{}} />}
                   label="I want to receive inspiration, marketing promotions and updates via email."
                 />
               </Grid>
             </Grid>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
+            <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
               Sign Up
             </Button>
             <Grid container justifyContent="flex-end">
@@ -135,6 +139,5 @@ export default function SignUp() {
         <Copyright sx={{ mt: 5 }} />
       </Container>
     </Grid>
-
   );
 }

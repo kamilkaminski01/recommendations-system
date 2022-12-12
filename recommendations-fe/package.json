@@ -3,7 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/icons-material": "^5.10.14",
+    "@mui/material": "^5.10.14",
     "@fortawesome/fontawesome-free": "^6.2.1",
+    "react-ga": "^2.7.0",
     "classnames": "^2.2.6",
     "lodash": "^4.17.15",
     "mdb-ui-kit": "^6.0.0",
@@ -23,7 +28,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint \"**/*.{ts,tsx,jsx,js}\"",
+    "lint": "eslint \"**/*.{js,jsx,css,md,json}\"",
     "lint --fix": "eslint --fix",
     "check": "npm run lint",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"

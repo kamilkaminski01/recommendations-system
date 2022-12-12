@@ -10,11 +10,11 @@ import { SectionTilesProps } from '../../utils/SectionProps';
 
 const propTypes = {
   ...SectionTilesProps.types
-}
+};
 
 const defaultProps = {
   ...SectionTilesProps.defaults
-}
+};
 const FeaturesTiles = ({
   className,
   topOuterDivider,
@@ -26,7 +26,6 @@ const FeaturesTiles = ({
   pushLeft,
   ...props
 }) => {
-
   const outerClasses = classNames(
     'features-tiles section',
     topOuterDivider && 'has-top-divider',
@@ -42,22 +41,13 @@ const FeaturesTiles = ({
     bottomDivider && 'has-bottom-divider'
   );
 
-  const tilesClasses = classNames(
-    'tiles-wrap center-content',
-    pushLeft && 'push-left'
-  );
-
-
+  const tilesClasses = classNames('tiles-wrap center-content', pushLeft && 'push-left');
 
   return (
-    <section
-      {...props}
-      className={outerClasses}
-    >
+    <section {...props} className={outerClasses}>
       <div className="container">
         <div className={innerClasses}>
           <div className={tilesClasses}>
-
             <div className="tiles-item reveal-from-bottom">
               <div className="tiles-item-inner">
                 <div className="features-tiles-item-header">
@@ -66,11 +56,10 @@ const FeaturesTiles = ({
                   </div>
                 </div>
                 <div className="features-tiles-item-content">
-                  <h4 className="mt-0 mb-8">
-                    Robust Workflow
-                  </h4>
+                  <h4 className="mt-0 mb-8">Robust Workflow</h4>
                   <p className="m-0 text-sm">
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                    fugiat nulla pariatur. Excepteur sint occaecat cupidatat.
                   </p>
                 </div>
               </div>
@@ -80,15 +69,14 @@ const FeaturesTiles = ({
               <div className="tiles-item-inner">
                 <div className="features-tiles-item-header">
                   <div className="features-tiles-item-image mb-16">
-                    <AssistantIcon fontSize='large' />
+                    <AssistantIcon fontSize="large" />
                   </div>
                 </div>
                 <div className="features-tiles-item-content">
-                  <h4 className="mt-0 mb-8">
-                    Robust Workflow
-                  </h4>
+                  <h4 className="mt-0 mb-8">Robust Workflow</h4>
                   <p className="m-0 text-sm">
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                    fugiat nulla pariatur. Excepteur sint occaecat cupidatat.
                   </p>
                 </div>
               </div>
@@ -98,15 +86,14 @@ const FeaturesTiles = ({
               <div className="tiles-item-inner">
                 <div className="features-tiles-item-header">
                   <div className="features-tiles-item-image mb-16">
-                    <SettingsSuggestIcon fontSize='large' />
+                    <SettingsSuggestIcon fontSize="large" />
                   </div>
                 </div>
                 <div className="features-tiles-item-content">
-                  <h4 className="mt-0 mb-8">
-                    Robust Workflow
-                  </h4>
+                  <h4 className="mt-0 mb-8">Robust Workflow</h4>
                   <p className="m-0 text-sm">
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                    fugiat nulla pariatur. Excepteur sint occaecat cupidatat.
                   </p>
                 </div>
               </div>
@@ -116,15 +103,14 @@ const FeaturesTiles = ({
               <div className="tiles-item-inner">
                 <div className="features-tiles-item-header">
                   <div className="features-tiles-item-image mb-16">
-                    < FeaturedVideoIcon fontSize='large' />
+                    <FeaturedVideoIcon fontSize="large" />
                   </div>
                 </div>
                 <div className="features-tiles-item-content">
-                  <h4 className="mt-0 mb-8">
-                    Robust Workflow
-                  </h4>
+                  <h4 className="mt-0 mb-8">Robust Workflow</h4>
                   <p className="m-0 text-sm">
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                    fugiat nulla pariatur. Excepteur sint occaecat cupidatat.
                   </p>
                 </div>
               </div>
@@ -134,15 +120,14 @@ const FeaturesTiles = ({
               <div className="tiles-item-inner">
                 <div className="features-tiles-item-header">
                   <div className="features-tiles-item-image mb-16">
-                    <AssistantPhotoIcon fontSize='large' />
+                    <AssistantPhotoIcon fontSize="large" />
                   </div>
                 </div>
                 <div className="features-tiles-item-content">
-                  <h4 className="mt-0 mb-8">
-                    Robust Workflow
-                  </h4>
+                  <h4 className="mt-0 mb-8">Robust Workflow</h4>
                   <p className="m-0 text-sm">
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                    fugiat nulla pariatur. Excepteur sint occaecat cupidatat.
                   </p>
                 </div>
               </div>
@@ -152,26 +137,24 @@ const FeaturesTiles = ({
               <div className="tiles-item-inner">
                 <div className="features-tiles-item-header">
                   <div className="features-tiles-item-image mb-16">
-                    <AddTaskIcon fontSize='large' />
+                    <AddTaskIcon fontSize="large" />
                   </div>
                 </div>
                 <div className="features-tiles-item-content">
-                  <h4 className="mt-0 mb-8">
-                    Robust Workflow
-                  </h4>
+                  <h4 className="mt-0 mb-8">Robust Workflow</h4>
                   <p className="m-0 text-sm">
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                    fugiat nulla pariatur. Excepteur sint occaecat cupidatat.
                   </p>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
     </section>
   );
-}
+};
 
 FeaturesTiles.propTypes = propTypes;
 FeaturesTiles.defaultProps = defaultProps;

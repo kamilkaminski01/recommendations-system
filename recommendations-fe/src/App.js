@@ -10,22 +10,18 @@ import Home from './views/Home';
 import DashboardContent from './adminViews/DashboardContent';
 import Recommendations from './userViews/Recommendations';
 
-// Initialize Google Analytics
-ReactGA.initialize(process.env.REACT_APP_GA_CODE);
-
-const trackPage = page => {
+const trackPage = (page) => {
   ReactGA.set({ page });
   ReactGA.pageview(page);
 };
 
 const App = () => {
-
   const childRef = useRef();
-  let location = useLocation();
+  const location = useLocation();
 
   useEffect(() => {
     const page = location.pathname;
-    document.body.classList.add('is-loaded')
+    document.body.classList.add('is-loaded');
     childRef.current.init();
     trackPage(page);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -34,16 +30,23 @@ const App = () => {
   return (
     <ScrollReveal
       ref={childRef}
+      /* eslint-disable-next-line react/no-children-prop */
       children={() => (
         <Switch>
           <AppRoute exact path="/" component={Home} layout={LayoutDefault} />
           <AppRoute exact path="/singin" component={SignInSide} />
           <AppRoute exact path="/singup" component={SignUp} />
           <AppRoute exact path="/dashboard" component={DashboardContent} />
-          <AppRoute exact pat="/recommendations" component={Recommendations}  layout={LayoutDefault} />
+          <AppRoute
+            exact
+            pat="/recommendations"
+            component={Recommendations}
+            layout={LayoutDefault}
+          />
         </Switch>
-      )} />
+      )}
+    />
   );
-}
+};
 
 export default App;

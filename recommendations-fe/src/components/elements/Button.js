@@ -10,7 +10,7 @@ const propTypes = {
   wide: PropTypes.bool,
   wideMobile: PropTypes.bool,
   disabled: PropTypes.bool
-}
+};
 
 const defaultProps = {
   tag: 'button',
@@ -20,20 +20,9 @@ const defaultProps = {
   wide: false,
   wideMobile: false,
   disabled: false
-}
+};
 
-const Button = ({
-  className,
-  tag,
-  color,
-  size,
-  loading,
-  wide,
-  wideMobile,
-  disabled,
-  ...props
-}) => {
-
+const Button = ({ className, tag, color, size, loading, wide, wideMobile, disabled, ...props }) => {
   const classes = classNames(
     'button',
     color && `button-${color}`,
@@ -45,14 +34,8 @@ const Button = ({
   );
 
   const Component = tag;
-  return (
-    <Component
-      {...props}
-      className={classes}
-      disabled={disabled}
-    />
-  );
-}
+  return <Component {...props} className={classes} disabled={disabled} />;
+};
 
 Button.propTypes = propTypes;
 Button.defaultProps = defaultProps;
