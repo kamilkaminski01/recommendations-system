@@ -10,9 +10,9 @@ function preventDefault(event) {
 export default function Deposits() {
   return (
     <React.Fragment>
-      <Title>Recent Deposits</Title>
+      <Title>Ilość ofert</Title>
       <Typography component="p" variant="h4">
-        $3,024.00
+        300
       </Typography>
       <Typography color="text.secondary" sx={{ flex: 1 }}>
         on 15 March, 2019
