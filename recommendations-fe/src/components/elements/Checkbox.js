@@ -8,7 +8,7 @@ const propTypes = {
   value: PropTypes.string,
   disabled: PropTypes.bool,
   checked: PropTypes.bool
-}
+};
 
 const defaultProps = {
   children: null,
@@ -16,22 +16,10 @@ const defaultProps = {
   value: undefined,
   disabled: false,
   checked: undefined
-}
+};
 
-const Checkbox = ({
-  className,
-  children,
-  name,
-  value,
-  disabled,
-  checked,
-  ...props
-}) => {
-
-  const classes = classNames(
-    'form-checkbox',
-    className
-  );
+const Checkbox = ({ className, children, name, value, disabled, checked, ...props }) => {
+  const classes = classNames('form-checkbox', className);
 
   return (
     <label className={classes}>
@@ -46,7 +34,7 @@ const Checkbox = ({
       {children}
     </label>
   );
-}
+};
 
 Checkbox.propTypes = propTypes;
 Checkbox.defaultProps = defaultProps;

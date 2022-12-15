@@ -46,6 +46,7 @@ const rows = [
     'NETTO',
     12,
   ),
+
 ];
 
 function preventDefault(event) {

@@ -11,14 +11,11 @@ const propTypes = {
   name: PropTypes.string,
   status: PropTypes.string,
   disabled: PropTypes.bool,
-  value: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]),
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   size: PropTypes.string,
   placeholder: PropTypes.string,
   hint: PropTypes.string
-}
+};
 
 const defaultProps = {
   children: null,
@@ -31,7 +28,7 @@ const defaultProps = {
   size: '',
   placeholder: null,
   hint: null
-}
+};
 
 const Select = ({
   className,
@@ -47,7 +44,6 @@ const Select = ({
   hint,
   ...props
 }) => {
-
   const classes = classNames(
     'form-select',
     size && `form-select-${size}`,
@@ -57,21 +53,23 @@ const Select = ({
 
   return (
     <>
-      {label && <FormLabel labelHidden={labelHidden} id={props.id}>{label}</FormLabel>}
-      <select
-        {...props}
-        className={classes}
-        name={name}
-        disabled={disabled}
-        value={value}
-      >
-        {placeholder && <option hidden value="">{placeholder}</option>}
+      {label && (
+        <FormLabel labelHidden={labelHidden} id={props.id}>
+          {label}
+        </FormLabel>
+      )}
+      <select {...props} className={classes} name={name} disabled={disabled} value={value}>
+        {placeholder && (
+          <option hidden value="">
+            {placeholder}
+          </option>
+        )}
         {children}
       </select>
       {hint && <FormHint status={status}>{hint}</FormHint>}
     </>
   );
-}
+};
 
 Select.propTypes = propTypes;
 Select.defaultProps = defaultProps;
