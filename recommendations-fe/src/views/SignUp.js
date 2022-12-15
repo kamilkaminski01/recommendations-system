@@ -11,10 +11,16 @@ import Link from '@mui/material/Link';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
+import { createTheme, styled, ThemeProvider } from '@mui/material/styles';
+import Badge from '@mui/material/Badge';
+import LightModeIcon from '@mui/icons-material/LightMode';
+import MenuIcon from '@mui/icons-material/Menu';
+import NightlightIcon from '@mui/icons-material/Nightlight';
+import IconButton from '@mui/material/IconButton';
 
 function Copyright(props) {
   return (
-    <Typography variant="body2" color="white" align="center" {...props}>
+    <Typography variant="body2"  align="center" {...props}>
       {'Copyright © '}
       <Link color="inherit" href="/">
         Uwb Riders
@@ -39,8 +45,38 @@ export default function SignUp() {
     });
   };
 
+
+  const toggleDrawer = () => {
+    setOpen(!open);
+  };
+  
+  const darkTheme = createTheme({
+    palette: {
+      mode: 'dark',
+    },
+  });
+  
+  const whiteTheme = createTheme({
+    palette: {
+  
+    },
+  });
+
+  const [darkMode, setDarkMode] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
+  const onClick=() =>{
+      {darkMode ? setDarkMode(false): setDarkMode(true)};
+    }
+
+
+
+
+
+
   return (
-    <Grid item xs={12}  sx={{bgcolor:'#525252', color:"white"}}sm={8} md={5}  elevation={6} square>
+    <ThemeProvider theme={darkMode ? darkTheme : whiteTheme}>
+    <CssBaseline />
+    <Grid item xs={12}  sm={8} md={5}  elevation={6} square>
       <Container component="main" maxWidth="xs" >
         <CssBaseline />
         <Box
@@ -51,10 +87,21 @@ export default function SignUp() {
             alignItems: 'center',
           }}
         >
+          <Grid item xs={4}>
+            <IconButton color="inherit">
+                <Badge color="secondary" onClick={onClick}>
+                  {darkMode
+                  ?<LightModeIcon titleAccess='Motyw jasny'/>
+                  :<NightlightIcon titleAccess='Motyw ciemny'/> 
+                }
+                <Typography >Motyw</Typography>
+                </Badge>
+              </IconButton>
+            </Grid>
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5" color="white">
+          <Typography component="h1" variant="h5" borderColor="black">
             Sign up
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
@@ -68,7 +115,7 @@ export default function SignUp() {
                   id="firstName"
                   label="First Name"
                   autoFocus
-                  sx={{ input: { color: 'white' },label: {color: 'white'} }}
+                 
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -79,7 +126,7 @@ export default function SignUp() {
                   label="Last Name"
                   name="lastName"
                   autoComplete="family-name"
-                  sx={{ input: { color: 'white' },label: {color: 'white'} }}
+                 
                 />
               </Grid>
               <Grid item xs={12}>
@@ -90,7 +137,7 @@ export default function SignUp() {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
-                  sx={{ input: { color: 'white' },label: {color: 'white'} }}
+                 
                 />
               </Grid>
               <Grid item xs={12}>
@@ -102,7 +149,7 @@ export default function SignUp() {
                   type="password"
                   id="password"
                   autoComplete="new-password"
-                  sx={{ input: { color: 'white' },label: {color: 'white'}, borderColor: 'white' }}
+                 
                 />
               </Grid>
               <Grid item xs={12}>
@@ -135,6 +182,6 @@ export default function SignUp() {
         <Copyright sx={{ mt: 5 }} />
       </Container>
     </Grid>
-
+  </ThemeProvider>
   );
 }

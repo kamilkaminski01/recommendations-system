@@ -12,6 +12,11 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Badge from '@mui/material/Badge';
+import LightModeIcon from '@mui/icons-material/LightMode';
+import MenuIcon from '@mui/icons-material/Menu';
+import NightlightIcon from '@mui/icons-material/Nightlight';
+import IconButton from '@mui/material/IconButton';
 
 function Copyright(props) {
   return (
@@ -41,9 +46,29 @@ export default function SignInSide() {
     console.log(stateTemp);
   };
 
+
+  const darkTheme = createTheme({
+    palette: {
+      mode: 'dark',
+    },
+  });
+  
+  const whiteTheme = createTheme({
+    palette: {
+  
+    },
+  });
+
+  const [darkMode, setDarkMode] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
+  const onClick=() =>{
+      {darkMode ? setDarkMode(false): setDarkMode(true)};
+    }
+
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={darkMode ? darkTheme : whiteTheme}>
       <Grid container component="main" sx={{ height: '100vh' }}>
+        
         <CssBaseline />
         <Grid
           item
@@ -59,8 +84,8 @@ export default function SignInSide() {
             backgroundPosition: 'center',
           }}
         />
-        <Grid item xs={12}  sx={{bgcolor:'#525252', color:"white"}}sm={8} md={5} component={Paper} elevation={6} square>
-          <Box
+        <Grid item xs={12}  sm={8} md={5} component={Paper} elevation={6} square>
+         <Box
             sx={{
               my: 8,
               mx: 4,
@@ -70,10 +95,20 @@ export default function SignInSide() {
              
             }}
           >
+              <IconButton color="inherit">
+                  <Badge color="secondary" onClick={onClick}>
+                    {darkMode
+                    ?<LightModeIcon titleAccess='Motyw jasny'/>
+                    :<NightlightIcon titleAccess='Motyw ciemny'/> 
+                  }
+                  <Typography >Motyw</Typography>
+                  </Badge>
+          </IconButton>
+          
             <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
               <LockOutlinedIcon />
             </Avatar>
-            <Typography component="h1" variant="h5" color="white">
+            <Typography component="h1" variant="h5">
               Sign in
             </Typography>
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
@@ -86,7 +121,7 @@ export default function SignInSide() {
                 name="email"
                 autoComplete="email"
                 autoFocus
-                sx={{ input: { color: 'white' },label: {color: 'white'} }}
+                
               />
               <TextField
                 margin="normal"
@@ -97,7 +132,7 @@ export default function SignInSide() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
-                sx={{ input: { color: 'white' }, label: {color: 'white'} }}
+               
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
