@@ -11,7 +11,6 @@
     "plugin:prettier/recommended",
     "plugin:react-hooks/recommended"
   ],
-  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -33,7 +32,7 @@
       }
     }
   ],
-  "plugins": ["react", "@typescript-eslint"],
+  "plugins": ["react"],
   "rules": {
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off"

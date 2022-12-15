@@ -27,7 +27,8 @@
     "lint": "eslint \"**/*.{js,jsx,css,md,json}\"",
     "lint --fix": "eslint --fix",
     "check": "npm run lint",
-    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+    "prepare": "cd .. && husky install recommendations-fe/.husky"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -56,6 +57,8 @@
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.31.11",
     "file-loader": "^6.2.0",
-    "prettier": "^2.8.1"
+    "prettier": "^2.8.1",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.1.0"
   }
 }
