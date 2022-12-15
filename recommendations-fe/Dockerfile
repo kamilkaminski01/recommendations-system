@@ -1,9 +1,15 @@
-FROM node:17.3-alpine
+FROM node:13.12.0-alpine
 
-WORKDIR /frontend
-COPY package.json .
+ENV PATH /app/node_modules/.bin:$PATH
+
+EXPOSE 3000
+
+WORKDIR /app
+
+COPY package.json ./
+COPY package-lock.json ./
 RUN npm install --legacy-peer-deps
 
-COPY . .
+COPY . ./
 
 CMD ["npm", "start"]

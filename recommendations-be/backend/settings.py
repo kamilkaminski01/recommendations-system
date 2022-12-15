@@ -73,11 +73,11 @@ WSGI_APPLICATION = "backend.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": environ.get("PSQL_NAME"),
-        "USER": environ.get("PSQL_USER"),
-        "PASSWORD": environ.get("PSQL_PASSWORD"),
-        "HOST": environ.get("PSQL_HOST"),
-        "PORT": environ.get("PSQL_PORT"),
+        "NAME": environ.get("POSTGRES_NAME"),
+        "USER": environ.get("POSTGRES_USER"),
+        "PASSWORD": environ.get("POSTGRES_PASSWORD"),
+        "HOST": environ.get("POSTGRES_HOST"),
+        "PORT": environ.get("POSTGRES_PORT"),
     }
 }
 
@@ -141,18 +141,6 @@ REST_FRAMEWORK = {
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     )
 }
-
-# Used for global authentication
-# REST_FRAMEWORK = {
-#     'DEFAULT_AUTHENTICATION_CLASSES': [
-#         'rest_framework.authentication.BasicAuthentication',
-#         'rest_framework.authentication.SessionAuthentication',
-#     ],
-#
-#     'DEFAULT_PERMISSION_CLASSES': [
-#         'rest_framework.permissions.IsAuthenticated',
-#     ]
-# }
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

@@ -17,5 +17,15 @@ class RecommenderAdmin(UsersAdmin):
     form = RecommenderForm
 
 
+class CandidateAdmin(admin.ModelAdmin):
+    list_display = [
+        "email",
+        "first_name",
+        "last_name",
+        "status",
+        "referrer",
+    ]
+
+
 admin.site.register(Recommender, RecommenderAdmin)
-admin.site.register(Candidate)
+admin.site.register(Candidate, CandidateAdmin)

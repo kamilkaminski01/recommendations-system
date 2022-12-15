@@ -1,16 +1,16 @@
+# This docker-compose file is designed for development purposes only
+
 version: "3.8"
 
 services:
   psql:
     container_name: db
-    image: "postgres:14.1-alpine"
     restart: always
-    environment:
-      - POSTGRES_DB=${PSQL_NAME}
-      - POSTGRES_USER=${PSQL_USER}
-      - POSTGRES_PASSWORD=${PSQL_PASSWORD}
-    ports:
-      - 5432:5432
+    image: postgres:14.1-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - ./.env
 
   django:
     container_name: backend
@@ -19,9 +19,9 @@ services:
     env_file:
       - ./.env
     ports:
-      - 8000:8000
+      - "8000:8000"
     volumes:
-      - ./recommendations-be:/backend
+      - ./recommendations-be:/app
     depends_on:
       - psql
 
@@ -30,6 +30,10 @@ services:
     build:
       context: ./recommendations-fe
     ports:
-      - 3000:3000
+      - "3000:3000"
     volumes:
-      - ./recommendations-fe/src:/frontend/src
+      - ./recommendations-fe:/app
+      - /app/node_modules
+
+volumes:
+  postgres_data:
