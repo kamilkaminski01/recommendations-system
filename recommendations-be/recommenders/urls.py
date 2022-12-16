@@ -8,6 +8,14 @@ from .views import (
 
 urlpatterns = [
     path("", RecommenderListCreateAPIView.as_view(), name="recommenders_api"),
-    path("details/<int:pk>/", RecommenderDetailsAPIView.as_view(), name="recommender_details"),
-    path("update/<int:pk>/", RecommenderUpdateAPIView.as_view(), name="recommender_update"),
+    path(
+        "details/<int:pk>/",
+        RecommenderDetailsAPIView.as_view(),
+        name="recommender_details",
+    ),
+    path(
+        "update/<int:pk>/",
+        RecommenderUpdateAPIView.as_view(),
+        name="recommender_update",
+    ),
 ]
