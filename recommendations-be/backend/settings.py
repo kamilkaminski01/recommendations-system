@@ -139,7 +139,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "backend", "media")
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
-    )
+    ),
+    "EXCEPTION_HANDLER": "backend.exception_handler.full_details_exception_handler",
 }
 
 # Default primary key field type
