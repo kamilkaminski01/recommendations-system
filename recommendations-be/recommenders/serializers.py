@@ -19,22 +19,14 @@ class RecommenderSerializer(serializers.ModelSerializer):
         recommender.save()
         return recommender
 
+    def update(self, instance: User, validated_data: dict) -> User:
+        if validated_data.get("password"):
+            validated_data.pop("password")
+        return super(RecommenderSerializer, self).update(instance, validated_data)
+
     def validate_password(self, data: str) -> str:
         password_validation.validate_password(data, self.instance)
         return data
-
-
-class RecommenderDetailsSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Recommender
-        fields = [
-            "email",
-            "first_name",
-            "last_name",
-            "address",
-            "current_points",
-            "credibility",
-        ]
 
 
 class RecommenderUpdateSerializer(serializers.ModelSerializer):
@@ -62,3 +54,16 @@ class RecommenderNewPasswordSerializer(serializers.ModelSerializer):
     class Meta:
         model = Recommender
         fields = ["new_password"]
+
+
+class RecommenderDetailsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Recommender
+        fields = [
+            "email",
+            "first_name",
+            "last_name",
+            "address",
+            "current_points",
+            "credibility",
+        ]
