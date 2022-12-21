@@ -14,7 +14,6 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Badge from '@mui/material/Badge';
 import LightModeIcon from '@mui/icons-material/LightMode';
-import MenuIcon from '@mui/icons-material/Menu';
 import NightlightIcon from '@mui/icons-material/Nightlight';
 import IconButton from '@mui/material/IconButton';
 
@@ -31,7 +30,7 @@ function Copyright(props) {
   );
 }
 
-const theme = createTheme();
+// const theme = createTheme();
 
 export default function SignInSide() {
   const handleSubmit = (event) => {
@@ -46,29 +45,25 @@ export default function SignInSide() {
     console.log(stateTemp);
   };
 
-
   const darkTheme = createTheme({
     palette: {
-      mode: 'dark',
-    },
+      mode: 'dark'
+    }
   });
-  
+
   const whiteTheme = createTheme({
-    palette: {
-  
-    },
+    palette: {}
   });
 
   const [darkMode, setDarkMode] = React.useState(false);
-  const [open, setOpen] = React.useState(false);
-  const onClick=() =>{
-      {darkMode ? setDarkMode(false): setDarkMode(true)};
-    }
+  // const [open, setOpen] = React.useState(false);
+  const onClick = () => {
+    darkMode ? setDarkMode(false) : setDarkMode(true);
+  };
 
   return (
     <ThemeProvider theme={darkMode ? darkTheme : whiteTheme}>
       <Grid container component="main" sx={{ height: '100vh' }}>
-        
         <CssBaseline />
         <Grid
           item
@@ -85,29 +80,26 @@ export default function SignInSide() {
           }}
         />
 
-        <Grid item xs={12}  sm={8} md={5} component={Paper} elevation={6} square>
-         <Box
-
+        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+          <Box
             sx={{
               my: 8,
               mx: 4,
               display: 'flex',
               flexDirection: 'column',
 
-              alignItems: 'center',
-             
-            }}
-          >
-              <IconButton color="inherit">
-                  <Badge color="secondary" onClick={onClick}>
-                    {darkMode
-                    ?<LightModeIcon titleAccess='Motyw jasny'/>
-                    :<NightlightIcon titleAccess='Motyw ciemny'/> 
-                  }
-                  <Typography >Motyw</Typography>
-                  </Badge>
-          </IconButton>
-          
+              alignItems: 'center'
+            }}>
+            <IconButton color="inherit">
+              <Badge color="secondary" onClick={onClick}>
+                {darkMode ? (
+                  <LightModeIcon titleAccess="Motyw jasny" />
+                ) : (
+                  <NightlightIcon titleAccess="Motyw ciemny" />
+                )}
+                <Typography>Motyw</Typography>
+              </Badge>
+            </IconButton>
 
             <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
               <LockOutlinedIcon />
@@ -125,8 +117,6 @@ export default function SignInSide() {
                 name="email"
                 autoComplete="email"
                 autoFocus
-
-
               />
               <TextField
                 margin="normal"
@@ -137,9 +127,6 @@ export default function SignInSide() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
-
-               
-
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}

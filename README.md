@@ -1,7 +1,7 @@
 # Recommendations project
 
 This project is aimed at organizations that can leverage it
-for recruitment and advertisement. It allows the registered users 
+for recruitment and advertisement. It allows the registered users
 to invite potential customers for various rewards.
 
 ## Resources
@@ -19,8 +19,8 @@ The code repository is hosted on
 ```bash
 git clone https://github.com/Dimateos12/Project-recommendations
 cd Project-recommendations/
-docker-compose build
-docker-compose up
+make build
+make run
 ```
 
 [Docker Compose](https://docs.docker.com/compose/install/) is leveraged
@@ -34,6 +34,8 @@ build, run, and test the project. The most important commands include:
 - `run`: runs the project with Docker Compose.
 - `check`: performs backend static code checks.
 - `frontcheck`: performs frontend static code checks.
+- `pytest`: runs backend unit tests
+- `pytest_module module={module_name}`: runs backend unit tests in passed module
 - `clear`: stops the currently running services and removes the volumes.
 
 If `build` doesn't run, uncheck "Use Docker Compose V2" in Docker Desktop settings.
@@ -44,8 +46,7 @@ quality standards are met.
 
 ### Application setup
 
-After running the application, the following will be created:
-  - global superuser (admin@admin.com)
+TODO: `make initial_data`
 
 #### Troubleshooting
 
@@ -53,12 +54,19 @@ In case of errors with typing or missing dependencies, try to rebuild the
 Docker images:
 
 ```bash
-docker system prune --all
-docker-compose up --build
+make clear
+docker-compose up --build --force-recreate
 ```
 
 If `make` is not supported, the associated Docker Compose commands can be
 used directly in order to build and run the project:
+
+```bash
+git clone https://github.com/Dimateos12/Project-recommendations
+cd Project-recommendations/
+docker-compose build
+docker-compose run
+```
 
 ## Code quality standards
 

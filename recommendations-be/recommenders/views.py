@@ -15,48 +15,18 @@ from .serializers import (
 )
 
 
-class RecommenderListCreateAPIView(generics.ListCreateAPIView):
-    queryset = Recommender.objects.all()
-
+class RecommenderAPIView(
+    mixins.RetrieveModelMixin,
+    mixins.UpdateModelMixin,
+    mixins.DestroyModelMixin,
+    mixins.CreateModelMixin,
+    generics.GenericAPIView,
+):
     def get(self, request: Request, *args, **kwargs) -> Response:
-        return self.list(request, *args, **kwargs)
+        return self.retrieve(request, *args, **kwargs)
 
     def post(self, request, *args, **kwargs) -> Response:
         return self.create(request, *args, **kwargs)
-
-    def get_serializer_class(self) -> ModelSerializer:
-        if self.request.method == "POST":
-            return RecommenderSerializer
-        return RecommenderDetailsSerializer
-
-    def get_permissions(self) -> List[BasePermission]:
-        if self.request.method == "POST":
-            return []
-        return [IsAuthenticated()]
-
-
-class RecommenderDetailsAPIView(
-    mixins.RetrieveModelMixin,
-    generics.GenericAPIView,
-):
-    permission_classes = [IsAuthenticated]
-    queryset = Recommender.objects.all()
-    serializer_class = RecommenderDetailsSerializer
-
-    def get(self, request: Request, *args, **kwargs) -> Response:
-        return self.retrieve(request, *args, **kwargs)
-
-
-class RecommenderUpdateAPIView(
-    mixins.RetrieveModelMixin,
-    mixins.UpdateModelMixin,
-    generics.GenericAPIView,
-):
-    permission_classes = [IsAuthenticated]
-    queryset = Recommender.objects.all()
-
-    def get(self, request: Request, *args, **kwargs) -> Response:
-        return self.retrieve(request, *args, **kwargs)
 
     def put(self, request: Request, *args, **kwargs) -> Response:
         return self.update(request, *args, **kwargs)
@@ -82,7 +52,43 @@ class RecommenderUpdateAPIView(
                 )
         return self.partial_update(request, *args, **kwargs)
 
+    def delete(self, request: Request, *args, **kwargs) -> Response:
+        return self.destroy(request, *args, **kwargs)
+
     def get_serializer_class(self) -> ModelSerializer:
         if self.request.method == "PATCH" and "new_password" in self.request.data:
             return RecommenderNewPasswordSerializer
-        return RecommenderUpdateSerializer
+        elif self.request.method in ["PUT", "PATCH"]:
+            return RecommenderUpdateSerializer
+        return RecommenderSerializer
+
+    def get_permissions(self) -> List[BasePermission]:
+        if self.request.method == "POST":
+            return []
+        return [IsAuthenticated()]
+
+    def get_object(self):
+        return self.request.user
+
+
+class RecommenderDetailsAPIView(generics.RetrieveAPIView):
+    permission_classes = [IsAuthenticated]
+    queryset = Recommender.objects.all()
+    serializer_class = RecommenderDetailsSerializer
+
+    def get_object(self) -> Recommender:
+        return self.queryset.get(id=self.request.user.id)
+
+    def retrieve(self, request: Request, *args, **kwargs) -> Response:
+        try:
+            instance: Recommender = self.get_object()
+            serializer: ModelSerializer = self.get_serializer(instance)
+            return Response(serializer.data)
+        except Recommender.DoesNotExist:
+            return Response(
+                {
+                    "message": "You must be a Recommender to perform this action",
+                    "code": "recommender_not_found",
+                },
+                status=status.HTTP_404_NOT_FOUND,
+            )

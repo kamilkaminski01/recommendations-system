@@ -47,11 +47,9 @@ export default function Chart() {
               style={{
                 textAnchor: 'middle',
                 fill: theme.palette.text.primary,
-                ...theme.typography.body1,
-              }}
-            >
+                ...theme.typography.body1
+              }}>
               ilość
-
             </Label>
           </YAxis>
           <Line

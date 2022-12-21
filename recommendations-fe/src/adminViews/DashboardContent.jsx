@@ -21,7 +21,7 @@ import Typography from '@mui/material/Typography';
 import * as React from 'react';
 import Chart from './Chart';
 import Deposits from './Deposits';
-import { mainListItems, secondaryListItems } from './listItems';
+import { mainListItems } from './listItems';
 import Orders from './Orders';
 
 function Copyright(props) {
