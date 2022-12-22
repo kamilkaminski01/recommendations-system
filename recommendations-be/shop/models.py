@@ -33,9 +33,17 @@ class Reward(models.Model):
 
 
 class Image(models.Model):
-    reward = models.ForeignKey(Reward, on_delete=models.CASCADE)
+    reward = models.ForeignKey(
+        Reward,
+        on_delete=models.CASCADE,
+        related_name="reward_images",
+        verbose_name="reward",
+    )
     image = models.FileField(
-        upload_to=upload_to_rewards, validators=[validate_file_extension]
+        upload_to=upload_to_rewards,
+        validators=[validate_file_extension],
+        help_text="First image will be displayed as reward's main image in shop.",
+        verbose_name="image",
     )
 
     def __str__(self):
