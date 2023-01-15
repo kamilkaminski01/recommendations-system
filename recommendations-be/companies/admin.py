@@ -3,7 +3,7 @@ from django.contrib import admin
 from users.admin import UsersAdmin
 
 from .forms import CompanyAdminForm
-from .models import Advertisment, CompanyAdmin
+from .models import Advertisement, CompanyAdmin
 
 
 class CompanyAdminAdmin(UsersAdmin):
@@ -24,9 +24,9 @@ class CompanyAdminAdmin(UsersAdmin):
     form = CompanyAdminForm
 
 
-class AdvertismentAdmin(admin.ModelAdmin):
+class AdvertisementAdmin(admin.ModelAdmin):
     list_display = ["company", "title", "type", "reward_for_approval"]
 
 
 admin.site.register(CompanyAdmin, CompanyAdminAdmin)
-admin.site.register(Advertisment, AdvertismentAdmin)
+admin.site.register(Advertisement, AdvertisementAdmin)

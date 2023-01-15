@@ -15,7 +15,7 @@ class CompanyAdmin(User):
         verbose_name_plural = "Company Admins"
 
 
-class Advertisment(models.Model):
+class Advertisement(models.Model):
     company = models.ForeignKey(CompanyAdmin, on_delete=models.SET_NULL, null=True)
     title = models.CharField(max_length=150)
     description = models.TextField(null=True, blank=True)
@@ -31,5 +31,5 @@ class Advertisment(models.Model):
         return self.title
 
     class Meta:
-        verbose_name = "Advertisment"
-        verbose_name_plural = "Advertisments"
+        verbose_name = "Advertisement"
+        verbose_name_plural = "Advertisements"
