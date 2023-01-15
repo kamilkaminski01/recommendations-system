@@ -20,8 +20,7 @@ class TestRecommenderAuthentication(TestCase):
         self.auth_headers = {"HTTP_AUTHORIZATION": f"Bearer {refresh.access_token}"}
 
     def test_not_authenticated(self):
-        response = self.client.delete(self.url)
+        response = self.client.get(self.url)
         self.assertEqual(401, response.status_code)
         response_data = json.loads(response.content)
-        print(response_data)
         self.assertEqual(response_data.get("code"), "not_authenticated")
