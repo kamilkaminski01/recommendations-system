@@ -4,6 +4,9 @@ build:
 run:
 	docker-compose up
 
+initial-data:
+	docker-compose run django python manage.py initialize_data
+
 superuser:
 	docker-compose run django python manage.py createsuperuser
 
