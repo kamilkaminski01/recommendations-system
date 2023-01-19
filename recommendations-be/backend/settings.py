@@ -1,6 +1,10 @@
 import os
-from os import environ
 from pathlib import Path
+
+from environs import Env
+
+env = Env()
+env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -10,10 +14,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-anj=zw)4e++$^9(tty49gdt-&xw$#4#ubuk_h$vy0nhylg4t_0"
+SECRET_KEY = env("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool("DEBUG")
 
 ALLOWED_HOSTS = ["*"]
 
@@ -74,14 +78,13 @@ WSGI_APPLICATION = "backend.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": environ.get("POSTGRES_NAME"),
-        "USER": environ.get("POSTGRES_USER"),
-        "PASSWORD": environ.get("POSTGRES_PASSWORD"),
-        "HOST": environ.get("POSTGRES_HOST"),
-        "PORT": environ.get("POSTGRES_PORT"),
+        "HOST": env("POSTGRES_HOST"),
+        "PORT": env("POSTGRES_PORT"),
+        "NAME": env("POSTGRES_NAME"),
+        "USER": env("POSTGRES_USER"),
+        "PASSWORD": env("POSTGRES_PASSWORD"),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -113,23 +116,31 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-# AWS Configuration
-if environ.get("USE_S3") == "True":
-    AWS_ACCESS_KEY_ID = environ.get("AWS_ACCESS_KEY_ID")
-    AWS_SECRET_ACCESS_KEY = environ.get("AWS_SECRET_ACCESS_KEY")
-    AWS_STORAGE_BUCKET_NAME = environ.get("AWS_STORAGE_BUCKET_NAME")
-
-    AWS_S3_FILE_OVERWRITE = False
-    AWS_DEFAULT_ACL = None
-    DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
-    # STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
-
-
 STATIC_URL = "static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "backend", "static")
 
 MEDIA_URL = "media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "backend", "media")
+
+USE_S3 = env.bool("USE_S3")
+
+# AWS keys
+AWS_ACCESS_KEY_ID = env("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = env("AWS_SECRET_ACCESS_KEY")
+AWS_REGION = env("AWS_REGION")
+
+# AWS/S3 Configuration
+if USE_S3:
+    # AWS settings
+    AWS_STORAGE_BUCKET_NAME = env("AWS_STORAGE_BUCKET_NAME")
+    AWS_S3_REGION_NAME = env("AWS_REGION")
+    AWS_S3_SIGNATURE_VERSION = "s3v4"
+
+    # S3 static settings
+    AWS_DEFAULT_ACL = "public-read"
+    DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+    # STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+    # AWS_S3_FILE_OVERWRITE = False
 
 
 REST_FRAMEWORK = {
