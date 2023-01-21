@@ -1,16 +1,18 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { Router } from 'react-router-dom';
-import { createBrowserHistory } from 'history';
+import ReactDOM from 'react-dom/client';
+import './index.css';
 import App from './App';
-import './assets/scss/style.scss';
-// import './App.css';
+import NavbarComponent from './components/NavbarComponent';
+import FooterComponents from './components/FooterComponents';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-const history = createBrowserHistory();
-
-ReactDOM.render(
-  <Router history={history}>
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <NavbarComponent/>
     <App />
-  </Router>,
-  document.getElementById('root')
+    <FooterComponents/>
+  </React.StrictMode>
 );
+
+

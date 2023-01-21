@@ -1,52 +1,42 @@
-import React, { useRef, useEffect } from 'react';
-import { useLocation, Switch } from 'react-router-dom';
-import AppRoute from './utils/AppRoute';
-import ScrollReveal from './utils/ScrollReveal';
-import ReactGA from 'react-ga';
-import SignInSide from './views/SignInSide';
-import LayoutDefault from './layouts/LayoutDefault';
-import SignUp from './views/SignUp';
-import Home from './views/Home';
-import DashboardContent from './adminViews/DashboardContent';
-import Recommendations from './userViews/Recommendations';
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import Home from "./pages/Home";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
+import UserMainPage from "./pages/UserMainPage";
+import { setAuthToken } from "./providers/setAuthToken";
+import PrivateRoutes from "./providers/PrivateRoutes";
+import UserRank from "./pages/UserRank";
+import AboutUs from "./pages/AboutUs";
+import Product from "./pages/Product";
+import Shop from "./pages/Shop";
 
-const trackPage = (page) => {
-  ReactGA.set({ page });
-  ReactGA.pageview(page);
-};
+function App() {
 
-const App = () => {
-  const childRef = useRef();
-  const location = useLocation();
-
-  useEffect(() => {
-    const page = location.pathname;
-    document.body.classList.add('is-loaded');
-    childRef.current.init();
-    trackPage(page);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [location]);
+ //check jwt token
+ const token = localStorage.getItem("token");
+ if (token) {
+     setAuthToken(token);
+ }
 
   return (
-    <ScrollReveal
-      ref={childRef}
-      /* eslint-disable-next-line react/no-children-prop */
-      children={() => (
-        <Switch>
-          <AppRoute exact path="/" component={Home} layout={LayoutDefault} />
-          <AppRoute exact path="/singin" component={SignInSide} />
-          <AppRoute exact path="/singup" component={SignUp} />
-          <AppRoute exact path="/dashboard" component={DashboardContent} />
-          <AppRoute
-            exact
-            pat="/recommendations"
-            component={Recommendations}
-            layout={LayoutDefault}
-          />
-        </Switch>
-      )}
-    />
+    <BrowserRouter>
+      <Routes >      
+        <Route element={<PrivateRoutes/>}>
+            <Route element={<UserMainPage/>} path="/mainPage" />
+            <Route element={<Home />} path="/home" />
+            <Route element={<UserRank/>} path="/rank"/>
+            <Route element={<AboutUs/>} path="/aboutus"/>
+        </Route>
+      <Route element={<SignIn/>} path="/singin"/>
+      <Route element={<SignUp/>} path="/singout"/>
+      <Route element={<UserRank/>} path="/rank"/>
+      <Route element={<Shop/>} path="/shop"/>
+      <Route element={<Product/>} path="/product"/>
+      </Routes>
+    </BrowserRouter>
   );
-};
+}
 
 export default App;
