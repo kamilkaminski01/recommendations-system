@@ -14,7 +14,7 @@ const PrivateRoutes = () => {
    console.log(hasJWT());
 
    return (
-       hasJWT() ? <Outlet/> : <Navigate to="/singin"/>
+       hasJWT() ? <Outlet/> : <></>
    );
 };
  

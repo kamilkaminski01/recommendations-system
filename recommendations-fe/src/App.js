@@ -2,8 +2,8 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home";
-import SignIn from "./pages/SignIn";
-import SignUp from "./pages/SignUp";
+import LoginForm from "./pages/LoginForm";
+import RegisterForm from "./pages/RegisterForm";
 import UserMainPage from "./pages/UserMainPage";
 import { setAuthToken } from "./providers/setAuthToken";
 import PrivateRoutes from "./providers/PrivateRoutes";
@@ -12,7 +12,7 @@ import AboutUs from "./pages/AboutUs";
 import Product from "./pages/Product";
 import Shop from "./pages/Shop";
 
-function App() {
+function App(props) {
 
  //check jwt token
  const token = localStorage.getItem("token");
@@ -22,18 +22,18 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Routes >      
+      <Routes>      
         <Route element={<PrivateRoutes/>}>
             <Route element={<UserMainPage/>} path="/mainPage" />
             <Route element={<Home />} path="/home" />
             <Route element={<UserRank/>} path="/rank"/>
             <Route element={<AboutUs/>} path="/aboutus"/>
         </Route>
-      <Route element={<SignIn/>} path="/singin"/>
-      <Route element={<SignUp/>} path="/singout"/>
+      <Route element={<LoginForm/>} path="/login"/>
+      <Route element={<RegisterForm/>} path="/register"/>
       <Route element={<UserRank/>} path="/rank"/>
-      <Route element={<Shop/>} path="/shop"/>
-      <Route element={<Product/>} path="/product"/>
+      <Route element={<Shop/>} path="/shop/rewards"/>
+      <Route path='/product/:userId' element={<Product/>}/>
       </Routes>
     </BrowserRouter>
   );
