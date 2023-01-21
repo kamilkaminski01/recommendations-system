@@ -10,7 +10,6 @@ const API_URL = 'http://localhost:8000/api/';
 
 export function Login(data){
     axios.post(API_URL+'token/',data)
-    // console.log(`data: ${JSON.stringify(data)}`)
     .then(response =>{
         console.log(`response: ${JSON.stringify(response)}`)
         const token = response.data.access;
@@ -24,9 +23,9 @@ export function Login(data){
 };
 
 export function Register(data){
-    axios.post(API_URL+'recommenders/',data)
+    axios.post(API_URL+'users/',data)
     .then(response =>{
-        window.location.href = '/singin'
+        window.location.href = '/login'
     })
     .catch(err => console.log(err));
 };
