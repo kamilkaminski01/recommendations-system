@@ -8,6 +8,7 @@ import Add from '@material-ui/icons/Add';
 import CurrencyExchangeIcon from '@material-ui/icons/Money';
 import Shop from '@material-ui/icons/Shop';
 import Star from '@material-ui/icons/Star';
+import { RateReview } from '@material-ui/icons';
 import { makeStyles } from '@mui/styles';
 import * as React from "react";
 import { Link } from "react-router-dom";
@@ -113,10 +114,10 @@ const useStyles = makeStyles({
 
                 </Box>
                 <Box className={classes.card}>
-                <CustomCard name="Sklep " icon={<Shop color="primary" fontSize="large"/>} link='/shop'/>
+                <CustomCard name="Sklep " icon={<Shop color="primary" fontSize="large"/>} link='/shop/rewards'/>
                 </Box>
                 <Box className={classes.card}>
-                <CustomCard name="Dodaj przedmiot/oferte" icon={<Add color="primary"  fontSize="large"/>}link=''/>
+                <CustomCard name="Polecenia" icon={<RateReview color="primary"  fontSize="large"/>}link=''/>
                 </Box>
                 <Box className={classes.card}>
 

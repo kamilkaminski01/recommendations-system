@@ -1,4 +1,4 @@
-import logo from "./face.jpg";
+
 
 export default function AboutUs() {
   return (

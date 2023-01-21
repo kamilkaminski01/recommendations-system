@@ -12,7 +12,7 @@ import Typography from '@mui/material/Typography';
 import * as React from 'react';
 import {Register} from '../providers/dataProviders';
 
-export default function SignUp() {
+export default function RegisterForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -47,7 +47,7 @@ export default function SignUp() {
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5" borderColor="black">
-              Sign up
+              Register
             </Typography>
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
               <Grid container spacing={2}>
@@ -103,7 +103,7 @@ export default function SignUp() {
               </Button>
               <Grid container justifyContent="flex-end">
                 <Grid item>
-                  <Link href="/singin " variant="body2">
+                  <Link href="/login " variant="body2">
                     Already have an account? Sign in
                   </Link>
                 </Grid>
