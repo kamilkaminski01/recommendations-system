@@ -1,11 +1,11 @@
 import * as React from "react";
 import { useEffect } from "react";
 import axios from "axios";
-import logo from "./face.jpg";
-
+import RedirectButton from "../components/RedirectButton";
+import Product from "./Product";
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 export default function Shop() {
-    const size = 40;
     const API_URL = "http://localhost:8000/api/";
     const [dataProvider, setDataProvider] = React.useState([]);
     const [isLoading,SetLoading] = React.useState(true);
@@ -19,7 +19,7 @@ export default function Shop() {
 
     console.log(`data: ${JSON.stringify(dataProvider)}`);
     if(isLoading){
-        return (<>Loading...</>);
+        return (<><CircularProgress/></>);
     }
     return (
         <>
@@ -43,7 +43,7 @@ export default function Shop() {
                                 </div>
                             
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center"> <a class="btn btn-outline-dark mt-auto" href="/product">Check product</a></div>
+                                    <div class="text-center"> <RedirectButton url={"/product/"+ x.id} component={<Product/>} name="Pokaż" state={{id:"1"}}/></div>
                                 </div>
                             </div>
                         </div>
