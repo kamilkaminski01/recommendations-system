@@ -46,7 +46,26 @@ quality standards are met.
 
 ### Application setup
 
-TODO: `make initial_data`
+After running the application, the following actions should be executed:
+
+Run `make initial_data` to initialize database with example data including:
+  - global superuser (admin@admin.com)
+  - recommenders (users):
+    - first recommender (kamil@recommender.com)
+    - second recommender (adam@recommender.com)
+    - third recommender (mateusz@recommender.com)
+  - company admins (users):
+    - first company admin (janusz@microsoft.com)
+    - second company admin (dorota@pzu.com)
+    - third company admin (hubert@apple.com)
+  - advertisements:
+    - first advertisement (Apple)
+    - second advertisement (PZU)
+    - third advertisement (Microsoft)
+  - shop rewards:
+    - first reward (iPhone 14 pro)
+    - second reward (Macbook pro M1)
+    - third reward (Karta upominkowa)
 
 #### Troubleshooting
 

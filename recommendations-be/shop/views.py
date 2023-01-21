@@ -6,7 +6,6 @@ from .serializers import RewardDetailSerializer, RewardListSerializer
 
 class RewardListAPIView(ListAPIView):
     serializer_class = RewardListSerializer
-    ordering_fields = ["created_at"]
     queryset = Reward.objects.all()
 
 
