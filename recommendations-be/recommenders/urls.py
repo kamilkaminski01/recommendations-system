@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import RecommenderAPIView, RecommenderDetailsAPIView
+from .views import RecommenderAPIView, RecommenderDetailsAPIView, RecommenderCredibilityView
 
 urlpatterns = [
     path("", RecommenderAPIView.as_view(), name="recommenders_api"),
@@ -9,4 +9,5 @@ urlpatterns = [
         RecommenderDetailsAPIView.as_view(),
         name="recommender_details",
     ),
+    path("ranking/", RecommenderCredibilityView.as_view(), name="recommenders_ranking")
 ]

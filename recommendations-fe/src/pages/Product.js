@@ -1,5 +1,3 @@
-
-import logo from "./face.jpg";
 import { useParams } from "react-router-dom";
 import * as React from "react";
 import { useEffect } from "react";

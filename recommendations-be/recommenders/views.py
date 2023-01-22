@@ -12,6 +12,7 @@ from .serializers import (
     RecommenderNewPasswordSerializer,
     RecommenderSerializer,
     RecommenderUpdateSerializer,
+    RecommenderCredibilitySerializer,
 )
 
 
@@ -92,3 +93,8 @@ class RecommenderDetailsAPIView(generics.RetrieveAPIView):
                 },
                 status=status.HTTP_404_NOT_FOUND,
             )
+
+
+class RecommenderCredibilityView(generics.ListAPIView):
+    serializer_class = RecommenderCredibilitySerializer
+    queryset = Recommender.objects.order_by("-credibility")
