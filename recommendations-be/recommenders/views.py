@@ -8,11 +8,11 @@ from rest_framework.serializers import ModelSerializer
 
 from .models import Recommender
 from .serializers import (
+    RecommenderCredibilitySerializer,
     RecommenderDetailsSerializer,
     RecommenderNewPasswordSerializer,
     RecommenderSerializer,
     RecommenderUpdateSerializer,
-    RecommenderCredibilitySerializer,
 )
 
 
