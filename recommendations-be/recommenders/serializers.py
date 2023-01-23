@@ -67,3 +67,13 @@ class RecommenderDetailsSerializer(serializers.ModelSerializer):
             "current_points",
             "credibility",
         ]
+
+
+class RecommenderCredibilitySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Recommender
+        fields = [
+            "first_name",
+            "last_name",
+            "credibility",
+        ]
