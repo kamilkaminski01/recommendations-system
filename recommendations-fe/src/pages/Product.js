@@ -1,8 +1,10 @@
+
 import { useParams } from "react-router-dom";
 import * as React from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import CircularProgress from '@material-ui/core/CircularProgress';
+import RecomenderComponent from "../components/RecomenderComponent";
 
 export default function Product(props) {
 
@@ -38,12 +40,7 @@ export default function Product(props) {
                 </div>
                 <p class="lead">{dataProvider.long_description}</p>
 
-                <div class="d-flex">
-                         
-                        <button class="input-group-text decrement-btn">-</button>
-                            <input type="text" class="form-control text-center input-qty bg-white"  value="1" disabled/>
-                        <button class="input-group-text increment-btn" >+</button>
-                    
+                <div class="d-flex">                    
                     <button class="btn btn-outline-dark flex-shrink-0 addToCart-btn" value={1} type="button">
                         <i class="bi-cart-fill me-1"></i>
                         Add to cart

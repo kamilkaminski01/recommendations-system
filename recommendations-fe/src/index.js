@@ -11,7 +11,7 @@ root.render(
   <React.StrictMode>
     <NavbarComponent/>
     <App />
-    <FooterComponents/>
+  
   </React.StrictMode>
 );
 

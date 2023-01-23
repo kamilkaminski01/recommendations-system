@@ -11,6 +11,8 @@ import UserRank from "./pages/UserRank";
 import AboutUs from "./pages/AboutUs";
 import Product from "./pages/Product";
 import Shop from "./pages/Shop";
+import Offers from "./pages/Offers";
+import OffersDetail from "./pages/OffersDetail";
 
 function App(props) {
 
@@ -26,14 +28,18 @@ function App(props) {
         <Route element={<PrivateRoutes/>}>
             <Route element={<UserMainPage/>} path="/mainPage" />
             <Route element={<Home />} path="/home" />
+            <Route element={<Home />} path="/"/>
             <Route element={<UserRank/>} path="/rank"/>
             <Route element={<AboutUs/>} path="/aboutus"/>
+            <Route path='/product/:userId' element={<Product/>}/>
+            <Route path='/advertisements/:productId' element={<OffersDetail/>}/>
         </Route>
       <Route element={<LoginForm/>} path="/login"/>
       <Route element={<RegisterForm/>} path="/register"/>
       <Route element={<UserRank/>} path="/rank"/>
       <Route element={<Shop/>} path="/shop/rewards"/>
-      <Route path='/product/:userId' element={<Product/>}/>
+      <Route path='/advertisements' element={<Offers/>}/>
+      
       </Routes>
     </BrowserRouter>
   );
