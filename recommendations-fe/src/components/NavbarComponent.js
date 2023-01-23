@@ -25,13 +25,16 @@ function NavbarComponent() {
           {token?
             <></>
             :
-            <Nav.Link href="/shop">Shop</Nav.Link>
+            <>
+              <Nav.Link href="/shop">Shop</Nav.Link>
+              <Nav.Link href="/advertisements">Offers</Nav.Link>
+            </>
           }
             
       
             <NavDropdown title="User" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="/shope">Shop</NavDropdown.Item>
-              <NavDropdown.Item href="/offers">Offers</NavDropdown.Item>
+              <NavDropdown.Item href="/shop/rewards">Shop</NavDropdown.Item>
+              <NavDropdown.Item href="/advertisements">Offers</NavDropdown.Item>
             </NavDropdown>
             <Nav.Link href="/aboutus">About us </Nav.Link>
           </Nav>
@@ -39,7 +42,7 @@ function NavbarComponent() {
             {token?
    
            
-           <></> // <Button href="/" onClick={Logout()}>Logout</Button>
+           <></> // Tutaj dodac wylogowywanie 
             :
             <Nav.Link href="/login">Login</Nav.Link>
             }

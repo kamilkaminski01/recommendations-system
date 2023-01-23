@@ -117,7 +117,7 @@ const useStyles = makeStyles({
                 <CustomCard name="Sklep " icon={<Shop color="primary" fontSize="large"/>} link='/shop/rewards'/>
                 </Box>
                 <Box className={classes.card}>
-                <CustomCard name="Polecenia" icon={<RateReview color="primary"  fontSize="large"/>}link=''/>
+                <CustomCard name="Polecenia" icon={<RateReview color="primary"  fontSize="large"/>}link='/advertisements'/>
                 </Box>
                 <Box className={classes.card}>
 

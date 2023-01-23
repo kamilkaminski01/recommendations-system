@@ -9,7 +9,7 @@ export default function AboutUs() {
             <div class="row">
               <div class="col-md-6 col-lg-5 ">
                 <div class="img-box">
-                  <img src={logo} alt="Man showing Ok "/>
+                  <img  alt="Man showing Ok "/>
                 </div>
               </div>
               <div class="col-md-6 col-lg-7">
