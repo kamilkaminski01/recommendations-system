@@ -8,6 +8,7 @@ from rest_framework.serializers import ModelSerializer
 
 from .models import Recommender
 from .serializers import (
+    RecommenderCredibilitySerializer,
     RecommenderDetailsSerializer,
     RecommenderNewPasswordSerializer,
     RecommenderSerializer,
@@ -92,3 +93,8 @@ class RecommenderDetailsAPIView(generics.RetrieveAPIView):
                 },
                 status=status.HTTP_404_NOT_FOUND,
             )
+
+
+class RecommenderCredibilityView(generics.ListAPIView):
+    serializer_class = RecommenderCredibilitySerializer
+    queryset = Recommender.objects.order_by("-credibility")
