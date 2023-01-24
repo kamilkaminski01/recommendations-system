@@ -7,7 +7,7 @@ const BackButtonComponents = () => {
 
   return (
     <div>
-      <Button onChange={back} variant="contained">
+      <Button onClick={back} variant="contained">
         Powrót
       </Button>
     </div>

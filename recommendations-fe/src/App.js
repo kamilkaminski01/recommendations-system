@@ -13,6 +13,7 @@ import Product from "./pages/Product";
 import Shop from "./pages/Shop";
 import Offers from "./pages/Offers";
 import OffersDetail from "./pages/OffersDetail";
+import ProfilePage from "./pages/ProfilePage";
 
 function App(props) {
   // check jwt token
@@ -37,6 +38,7 @@ function App(props) {
       <Route element={<UserRank />} path="/rank" />
       <Route element={<Shop />} path="/shop/rewards" />
       <Route path="/advertisements" element={<Offers />} />
+      <Route path="/profilePage" element={<ProfilePage />} />
     </Routes>
   );
 }

@@ -26,14 +26,14 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "WATCHPACK_POLLING=true react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint \"**/*.{ts,tsx,js,jsx}\"",
     "lint --fix": "eslint --fix",
     "check": "npm run lint",
-    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+    "format": "prettier --write ./**/*.{js,jsx,ts,tsx,css,md,json} --config ./.prettierrc",
     "prepare": "cd .. && husky install recommendations-fe/.husky"
   },
   "eslintConfig": {

@@ -8,6 +8,7 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
 import { Login } from "../providers/dataProviders";
+import Link from "@mui/material/Link";
 
 export default function LoginForm() {
   const handleSubmit = (event) => {
@@ -67,7 +68,11 @@ export default function LoginForm() {
               Log in
             </Button>
             <Grid container justifyContent="flex-end">
-              <Grid item></Grid>
+              <Grid item>
+                <Link href="/register" variant="body2">
+                  Create your account
+                </Link>
+              </Grid>
             </Grid>
           </Box>
         </Box>
