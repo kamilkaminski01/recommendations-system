@@ -38,7 +38,7 @@ build, run, and test the project. The most important commands include:
 - `pytest_module module={module_name}`: runs backend unit tests in passed module
 - `clear`: stops the currently running services and removes the volumes.
 
-If `build` doesn't run, uncheck "Use Docker Compose V2" in Docker Desktop settings.
+If `build` doesn't run, uncheck "Use Docker Compose V2" in your Docker Desktop app settings.
 
 When using a local Python environment, [`pre-commit`](https://pre-commit.com/)
 should be installed and ran on staged files to ensure that the code
@@ -48,7 +48,7 @@ quality standards are met.
 
 After running the application, the following actions should be executed:
 
-Run `make initial_data` to initialize database with example data including:
+Run `make initial-data` to initialize database with example data including:
   - global superuser (admin@admin.com)
   - recommenders (users):
     - first recommender (kamil@recommender.com)
@@ -89,9 +89,9 @@ docker-compose run
 
 ## Code quality standards
 
-The `main` is the stable branch used for releases.
+`main` is the stable branch used for releases.
 
-All features should be verified with automated unit tests, including
+Features should be verified with automated unit tests, including
 the expected "happy paths" as well as edge cases that might cause issues
 or errors.
 
