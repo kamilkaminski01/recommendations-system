@@ -1,17 +1,14 @@
 import axios from "axios";
-// import { Button } from "bootstrap";
-import { Button } from "@material-ui/core";
 import * as React from "react";
 import BackButtonComponents from "../components/BackButtonComponents";
 
 const API_URL = "http://localhost:8000/api/";
 
-
 export default function UserRank() {
   const [dataProvider, setDataProvider] = React.useState([]);
 
   React.useEffect(() => {
-    axios.get(API_URL + "recommenders/").then((response) => {
+    axios.get(API_URL + "users/ranking/").then((response) => {
       setDataProvider(response.data);
     });
   }, []);
@@ -19,8 +16,8 @@ export default function UserRank() {
   return (
     <>
       <div className="AppRank">
-        <h1 style={{marginBottom:"5%"}}>Ranking polecajacych</h1>
-        <table class="styled-table">
+        <h1 style={{ marginBottom: "5%" }}>Ranking polecajacych</h1>
+        <table>
           <thead>
             <tr>
               <th>Name</th>
@@ -40,8 +37,8 @@ export default function UserRank() {
             })}
           </tbody>
         </table>
-        <div class="buttons-table">
-        <BackButtonComponents/>
+        <div>
+          <BackButtonComponents />
         </div>
       </div>
     </>

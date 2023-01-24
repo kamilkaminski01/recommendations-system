@@ -29,7 +29,12 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint \"**/*.{ts,tsx,js,jsx}\"",
+    "lint --fix": "eslint --fix",
+    "check": "npm run lint",
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+    "prepare": "cd .. && husky install recommendations-fe/.husky"
   },
   "eslintConfig": {
     "extends": [
@@ -48,5 +53,25 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.49.0",
+    "@typescript-eslint/parser": "^5.27.1",
+    "eslint": "^8.17.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.2.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.30.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.0",
+    "jest": "^27.5.1",
+    "jest-transform-stub": "^2.0.0",
+    "lint-staged": "^13.0.0",
+    "prettier": "^2.6.2",
+    "ts-jest": "^27.1.5",
+    "typescript": "^4.7.3"
   }
 }

@@ -1,7 +1,8 @@
-import RedirecTime from "./RedirectTime";
+function RedirectTime(props) {
+  return null;
+}
 
-export default function isLoading(props){
-
-    return(<RedirectTime url={props.url}/>);
-
+RedirectTime.propTypes = {};
+export default function isLoading(props) {
+  return <RedirectTime url={props.url} />;
 }
