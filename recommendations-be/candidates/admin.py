@@ -9,8 +9,10 @@ class CandidateAdmin(admin.ModelAdmin):
         "first_name",
         "last_name",
         "status",
+        "advertisement_name",
         "referrer",
     ]
+    exclude = ("advertisement_name",)
 
 
 admin.site.register(Candidate, CandidateAdmin)
