@@ -1,4 +1,4 @@
-export default function CheckToken(){
-    const token = localStorage.getItem("token");
-    return token;
+export default function CheckToken() {
+  const token = localStorage.getItem("token");
+  return token;
 }

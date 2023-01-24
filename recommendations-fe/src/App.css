@@ -38,7 +38,7 @@
 }
 styled-table {
   border-collapse: collapse;
-  margin: 25pxx 0;
+  margin: 25px 0;
   font-size: 0.9em;
   font-family: sans-serif;
   box-shadow: 0 0 20px rgb(0, 0, 0.15);
@@ -47,7 +47,6 @@ styled-table {
   background-color: #212529;
   color: #ffffff;
   text-align: left;
-  
 }
 
 .styled-table th,
@@ -56,25 +55,22 @@ styled-table {
   text-align: center;
 }
 
-.styled-table tbody tr{
+.styled-table tbody tr {
   border-bottom: 1px solid #dddddd;
 }
 
-.styled-table tbody tr:nth-of-type(even){
+.styled-table tbody tr:nth-of-type(even) {
   background-color: #f3f3f3;
 }
 
-.styled-table tbody tr:last-of-type{
+.styled-table tbody tr:last-of-type {
   border-bottom: 2px solid #212529;
 }
 
-.AppRank{
-
+.AppRank {
   width: 100%;
   text-align: -webkit-center;
 }
-
-
 
 .about_section {
   background-color: white;
@@ -83,8 +79,8 @@ styled-table {
 
 .about_section .row {
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .about_section .img-box {
@@ -93,8 +89,8 @@ styled-table {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .about_section .img-box img {
@@ -121,13 +117,12 @@ styled-table {
 .about_section .detail-box a:hover {
   color: #ffffff;
   -webkit-transform: translateY(-3px);
-          transform: translateY(-3px);
+  transform: translateY(-3px);
 }
-.sub-page{
+.sub-page {
   margin-top: 10%;
 }
 
-.BackButon{
+.BackButon {
   margin-top: 1%;
-  
 }
