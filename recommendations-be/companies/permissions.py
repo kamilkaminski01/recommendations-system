@@ -1,7 +1,9 @@
 from rest_framework.permissions import BasePermission
 from rest_framework.request import Request
 
-from .models import Advertisement, CompanyAdmin
+from advertisements.models import Advertisement
+
+from .models import CompanyAdmin
 
 
 class IsCompanyAdmin(BasePermission):

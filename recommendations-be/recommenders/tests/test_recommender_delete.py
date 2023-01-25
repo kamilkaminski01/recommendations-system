@@ -9,7 +9,7 @@ class TestRecommenderDeleteAPIView(TestCase):
     def setUp(self) -> None:
         super().setUp()
         self.client = Client()
-        self.url = reverse("recommenders_api")
+        self.url = reverse("users_api")
         self.recommender = Recommender.objects.create_user(
             email="kamil@recommender.com",
             password="Kamil-123",

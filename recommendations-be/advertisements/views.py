@@ -8,10 +8,10 @@ from rest_framework.serializers import ModelSerializer
 
 from candidates.models import Candidate
 from candidates.serializers import CandidateSerializer
+from companies.permissions import IsCompanyAdmin, IsCompanyAdminOwner
 from recommenders.models import Recommender
 
 from .models import Advertisement, CompanyAdmin
-from .permissions import IsCompanyAdmin, IsCompanyAdminOwner
 from .serializers import AdvertisementSerializer
 
 

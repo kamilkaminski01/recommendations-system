@@ -66,7 +66,7 @@
     "fields": {
       "password": "pbkdf2_sha256$390000$cQgiZS63wZnG0ZkYAk3aTy$8p06fdm7ackSvfJNvHfkbrgi62Afd0nCJc85W8R3AhA=",
       "is_superuser": false,
-      "is_staff": false,
+      "is_staff": true,
       "is_active": true,
       "first_name": "Janusz",
       "last_name": "Kowalski",
@@ -81,7 +81,7 @@
     "fields": {
       "password": "pbkdf2_sha256$390000$cQgiZS63wZnG0ZkYAk3aTy$8p06fdm7ackSvfJNvHfkbrgi62Afd0nCJc85W8R3AhA=",
       "is_superuser": false,
-      "is_staff": false,
+      "is_staff": true,
       "is_active": true,
       "first_name": "Dorota",
       "last_name": "Malinowska",
@@ -96,7 +96,7 @@
     "fields": {
       "password": "pbkdf2_sha256$390000$cQgiZS63wZnG0ZkYAk3aTy$8p06fdm7ackSvfJNvHfkbrgi62Afd0nCJc85W8R3AhA=",
       "is_superuser": false,
-      "is_staff": false,
+      "is_staff": true,
       "is_active": true,
       "first_name": "Hubert",
       "last_name": "Nietupski",
@@ -151,7 +151,7 @@
     }
   },
   {
-    "model": "companies.advertisement",
+    "model": "advertisements.advertisement",
     "pk": 1,
     "fields": {
       "title": "Programista backend",
@@ -162,7 +162,7 @@
     }
   },
   {
-    "model": "companies.advertisement",
+    "model": "advertisements.advertisement",
     "pk": 2,
     "fields": {
       "title": "Ubezpieczenie na zycie",
@@ -173,7 +173,7 @@
     }
   },
   {
-    "model": "companies.advertisement",
+    "model": "advertisements.advertisement",
     "pk": 3,
     "fields": {
       "title": "Uzywane laptopy Apple",

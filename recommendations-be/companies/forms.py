@@ -1,8 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 
-from .models import CompanyAdmin
-
 
 class CompanyAdminForm(forms.ModelForm):
     password = ReadOnlyPasswordHashField(
@@ -13,12 +11,3 @@ class CompanyAdminForm(forms.ModelForm):
             'using <a href="../password/">this form</a>.'
         ),
     )
-
-    class Meta:
-        model = CompanyAdmin
-        fields = [
-            "company",
-            "email",
-            "first_name",
-            "last_name",
-        ]
