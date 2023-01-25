@@ -12,8 +12,8 @@ class TestRecommenderGetAPIView(TestCase):
         super().setUp()
         self.client = Client()
         self.client_detail = Client()
-        self.url = reverse("recommenders_api")
-        self.url_detail = reverse("recommender_details", kwargs={"pk": 0})
+        self.url = reverse("users_api")
+        self.url_detail = reverse("user_details", kwargs={"pk": 0})
         self.recommender = Recommender.objects.create_user(
             email="krzysiek@recommender.com",
             password="Krzysiek-123",
@@ -55,6 +55,7 @@ class TestRecommenderGetAPIView(TestCase):
             "address": "ul. Sienkiewicza 3",
             "current_points": 200,
             "credibility": 500,
+            "is_staff": False,
         }
         response = self.client.get(self.url_detail, **self.auth_headers_details)
         response_data = json.loads(response.content)

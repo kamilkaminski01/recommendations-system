@@ -10,6 +10,10 @@ class CompanyAdmin(User):
     def __str__(self):
         return self.company
 
+    def save(self, *args, **kwargs) -> None:
+        self.is_staff = True
+        super().save(*args, **kwargs)
+
     class Meta:
         verbose_name = "Company Admin"
         verbose_name_plural = "Company Admins"

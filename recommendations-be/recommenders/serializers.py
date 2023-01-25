@@ -66,6 +66,7 @@ class RecommenderDetailsSerializer(serializers.ModelSerializer):
             "address",
             "current_points",
             "credibility",
+            "is_staff",
         ]
 
 
