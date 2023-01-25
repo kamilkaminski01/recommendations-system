@@ -4,8 +4,9 @@ from django.test import Client, TestCase
 from django.urls import reverse
 from rest_framework_simplejwt.tokens import RefreshToken
 
+from advertisements.models import Advertisement
 from candidates.models import Candidate
-from companies.models import Advertisement, CompanyAdmin
+from companies.models import CompanyAdmin
 from recommenders.models import Recommender
 
 

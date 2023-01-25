@@ -151,7 +151,7 @@
     }
   },
   {
-    "model": "companies.advertisement",
+    "model": "advertisements.advertisement",
     "pk": 1,
     "fields": {
       "title": "Programista backend",
@@ -162,7 +162,7 @@
     }
   },
   {
-    "model": "companies.advertisement",
+    "model": "advertisements.advertisement",
     "pk": 2,
     "fields": {
       "title": "Ubezpieczenie na zycie",
@@ -173,7 +173,7 @@
     }
   },
   {
-    "model": "companies.advertisement",
+    "model": "advertisements.advertisement",
     "pk": 3,
     "fields": {
       "title": "Uzywane laptopy Apple",

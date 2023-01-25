@@ -4,7 +4,8 @@ from django.test import Client, TestCase
 from django.urls import reverse
 from rest_framework_simplejwt.tokens import RefreshToken
 
-from companies.models import Advertisement, CompanyAdmin
+from advertisements.models import Advertisement
+from companies.models import CompanyAdmin
 
 
 class TestAdvertisementDelete(TestCase):

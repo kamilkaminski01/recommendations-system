@@ -1,6 +1,6 @@
 from django.db import models
 
-from companies.models import Advertisement
+from advertisements.models import Advertisement
 from recommenders.models import Recommender
 
 

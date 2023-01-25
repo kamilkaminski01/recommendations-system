@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     "corsheaders",
     "storages",
     "rest_framework",
+    "advertisements",
     "users",
     "recommenders",
     "candidates",
