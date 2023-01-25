@@ -23,6 +23,7 @@ class Candidate(models.Model):
     class StatusChoices(models.TextChoices):
         INVITED = "invited"
         CONFIRMED = "confirmed"
+        CANCELED = "canceled"
 
     status = models.CharField(
         max_length=30, choices=StatusChoices.choices, default=StatusChoices.INVITED

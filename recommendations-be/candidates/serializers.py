@@ -11,3 +11,23 @@ class CandidateSerializer(serializers.ModelSerializer):
             "last_name",
             "email",
         ]
+
+
+class CandidateListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Candidate
+        fields = [
+            "id",
+            "first_name",
+            "last_name",
+            "email",
+            "status",
+            "advertisement",
+            "advertisement_name",
+        ]
+
+
+class CandidateUpdateStatusSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Candidate
+        fields = ["status"]
