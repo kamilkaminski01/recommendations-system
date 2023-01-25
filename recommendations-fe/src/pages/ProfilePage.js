@@ -3,6 +3,9 @@ import React from "react";
 import axios from "axios";
 import Paper from "@mui/material/Paper";
 import BackButtonComponents from "../components/BackButtonComponents";
+import AdminAcceptComponent from "../components/AdminAcceptComponent";
+import AddAdvertisementComponent from "../components/AddAdvertisementComponent";
+import EditPersonComponent from "../components/EditPersonComponent";
 
 export default function ProfilePage() {
   const API_URL = "http://localhost:8000/api/";
@@ -10,16 +13,15 @@ export default function ProfilePage() {
   const [dataProvider, setDataProvider] = React.useState([]);
   const [isLoading, setLoading] = React.useState(true);
   const userId = localStorage.getItem("user_id");
-  React.useEffect(
-    () => {
-      axios.get(API_URL + "users/details/" + userId + "/").then((response) => {
-        setDataProvider(response.data);
-        setLoading(false);
-      });
-    },
-    userId,
-    [],
-  );
+  const [isAdmin, SetIsAdmin] = React.useState();
+
+  React.useEffect(() => {
+    axios.get(API_URL + "users/details/" + userId + "/").then((response) => {
+      setDataProvider(response.data);
+      setLoading(false);
+      response.data.is_staff ? SetIsAdmin(true) : SetIsAdmin(false);
+    });
+  }, [userId]);
 
   if (isLoading) {
     return <>Loading...</>;
@@ -76,36 +78,47 @@ export default function ProfilePage() {
                   secondary={<h6>{dataProvider.email}</h6>}
                 />
               </ListItem>
-              <ListItem alignItems="flex-start">
-                <ListItemText
-                  primary={
-                    <Typography
-                      className="list-item-title"
-                      sx={{ display: "inline" }}
-                      component="span"
-                      variant="body2">
-                      {"Aktualne punkty"}
-                    </Typography>
-                  }
-                  secondary={<h6>{dataProvider.current_points}</h6>}
-                />
-              </ListItem>
-              <ListItem alignItems="flex-start">
-                <ListItemText
-                  primary={
-                    <Typography
-                      className="list-item-title"
-                      sx={{ display: "inline" }}
-                      component="span"
-                      variant="body2">
-                      {"Punkty zaufania"}
-                    </Typography>
-                  }
-                  secondary={<h6>{dataProvider.credibility}</h6>}
-                />
-              </ListItem>
+              {isAdmin ? (
+                <>
+                  <AdminAcceptComponent />
+                </>
+              ) : (
+                <>
+                  <ListItem alignItems="flex-start">
+                    <ListItemText
+                      primary={
+                        <Typography
+                          className="list-item-title"
+                          sx={{ display: "inline" }}
+                          component="span"
+                          variant="body2">
+                          {"Aktualne punkty"}
+                        </Typography>
+                      }
+                      secondary={<h6>{dataProvider.current_points}</h6>}
+                    />
+                  </ListItem>
+                  <ListItem alignItems="flex-start">
+                    <ListItemText
+                      primary={
+                        <Typography
+                          className="list-item-title"
+                          sx={{ display: "inline" }}
+                          component="span"
+                          variant="body2">
+                          {"Punkty zaufania"}
+                        </Typography>
+                      }
+                      secondary={<h6>{dataProvider.credibility}</h6>}
+                    />
+                  </ListItem>
+                </>
+              )}
+
               <ListItem alignItems="flex-start">
                 <BackButtonComponents />
+                {isAdmin ? <AddAdvertisementComponent /> : <></>}
+                <EditPersonComponent />
               </ListItem>
             </List>
           </Grid>

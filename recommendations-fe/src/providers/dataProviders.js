@@ -1,5 +1,6 @@
 import axios from "axios";
 import { setAuthToken } from "./setAuthToken";
+import jwtDecode from "jwt-decode";
 
 const API_URL = "http://localhost:8000/api/";
 
@@ -9,7 +10,8 @@ export function Login(data) {
     .then((response) => {
       console.log(`response: ${JSON.stringify(response)}`);
       const token = response.data.access;
-
+      const decode = jwtDecode(token);
+      localStorage.setItem("user_id", decode.user_id);
       console.log(`token: ${token}`);
       localStorage.setItem("token", token);
 

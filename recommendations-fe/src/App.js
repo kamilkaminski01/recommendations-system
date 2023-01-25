@@ -26,19 +26,19 @@ function App(props) {
     <Routes>
       <Route element={<PrivateRoutes />}>
         <Route element={<UserMainPage />} path="/mainPage" />
-        <Route element={<Home />} path="/home" />
-        <Route element={<Home />} path="/" />
+        <Route path="/profilePage" element={<ProfilePage />} />
         <Route element={<UserRank />} path="/rank" />
-        <Route element={<AboutUs />} path="/aboutus" />
         <Route path="/product/:userId" element={<Product />} />
         <Route path="/advertisements/:productId" element={<OffersDetail />} />
+        <Route path="/advertisements" element={<Offers />} />
+        <Route element={<Shop />} path="/shop/rewards" />
+        <Route element={<UserRank />} path="/rank" />
       </Route>
       <Route element={<LoginForm />} path="/login" />
       <Route element={<RegisterForm />} path="/register" />
-      <Route element={<UserRank />} path="/rank" />
-      <Route element={<Shop />} path="/shop/rewards" />
-      <Route path="/advertisements" element={<Offers />} />
-      <Route path="/profilePage" element={<ProfilePage />} />
+      <Route element={<Home />} path="/" />
+      <Route element={<Home />} path="" />
+      <Route element={<AboutUs />} path="/aboutus" />
     </Routes>
   );
 }

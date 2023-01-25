@@ -10,12 +10,13 @@ import { Grid } from "@material-ui/core";
 import Box from "@mui/material/Box";
 import axios from "axios";
 
-export default function RecomenderComponent(props) {
+export default function EditPersonComponent(props) {
   const [open, setOpen] = React.useState(false);
   const handleClickOpen = () => {
     setOpen(true);
   };
   const API_URL = "http://localhost:8000/api/";
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -23,10 +24,9 @@ export default function RecomenderComponent(props) {
     const stateTemp = {
       first_name: data.get("first_name"),
       last_name: data.get("last_name"),
-      email: data.get("email"),
     };
     console.log(stateTemp);
-    axios.post(API_URL + "advertisements/details/" + props.id + "/", stateTemp).then((response) => {
+    axios.put(API_URL + "users/", stateTemp).then((response) => {
       window.location.reload(true);
     });
 
@@ -40,14 +40,12 @@ export default function RecomenderComponent(props) {
   return (
     <div>
       <Button variant="outlined" onClick={handleClickOpen}>
-        Poleć !
+        Edytuj dane
       </Button>
-      <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Formularz Polecajacy</DialogTitle>
+      <Dialog open={open} onClose={handleClose} fullWidth>
+        <DialogTitle>Formularz Zmiany Danych</DialogTitle>
         <DialogContent>
-          <DialogContentText>
-            Polec swojego znajomego, rodzine by otrzymac punkty.
-          </DialogContentText>
+          <DialogContentText>Podaj swoje nowe dane</DialogContentText>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container direction={"column"} spacing={2}>
               <Grid item> </Grid>
@@ -70,13 +68,10 @@ export default function RecomenderComponent(props) {
                 />
               </Grid>
               <Grid item>
-                <TextField required id="email" name="email" label="Required" defaultValue="Email" />
-              </Grid>
-              <Grid item>
                 <Button style={{ marginRight: "20px" }} onClick={handleClose}>
                   Anuluj
                 </Button>
-                <Button type="submit">Poleć!</Button>
+                <Button type="submit">Zapisz</Button>
               </Grid>
             </Grid>
           </Box>

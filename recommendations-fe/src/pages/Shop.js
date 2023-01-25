@@ -34,7 +34,13 @@ export default function Shop() {
             {dataProvider.map((x, i) => (
               <div className="col mb-5" key={i}>
                 <div className="card h-200 bg-image hover-zoom">
-                  <img className="card-img-top w-100" src={x.image} alt="logo" />
+                  <img
+                    className="card-img-top w-100"
+                    src={x.image}
+                    width="200"
+                    height="200"
+                    alt="logo"
+                  />
                   <div className="card-body p-4">
                     <div className="text-center">
                       <h5 className="fw-bolder">{x.title}</h5>

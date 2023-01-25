@@ -4,10 +4,10 @@ import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Grid from "@material-ui/core/Grid";
-import CurrencyExchangeIcon from "@material-ui/icons/Money";
 import Shop from "@material-ui/icons/Shop";
 import Star from "@material-ui/icons/Star";
 import { RateReview } from "@material-ui/icons";
+import AccountCircle from "@material-ui/icons/AccountCircle";
 import { makeStyles } from "@mui/styles";
 import * as React from "react";
 import { Link } from "react-router-dom";
@@ -81,9 +81,9 @@ export default function UserMainPage() {
           </Box>
           <Box className={classes.card}>
             <CustomCard
-              name="Wymień punkty w sklepie"
-              icon={<CurrencyExchangeIcon color="primary" fontSize="large" />}
-              link=""
+              name="Strona użytkownika"
+              icon={<AccountCircle color="primary" fontSize="large" />}
+              link="/profilePage"
             />
           </Box>
           <Box className={classes.card}></Box>

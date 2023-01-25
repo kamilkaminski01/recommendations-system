@@ -7,7 +7,7 @@ const BackButtonComponents = () => {
 
   return (
     <div>
-      <Button onClick={back} variant="contained">
+      <Button style={{ marginRight: "20px" }} onClick={back} variant="contained">
         Powrót
       </Button>
     </div>

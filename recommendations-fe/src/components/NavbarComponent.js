@@ -17,7 +17,7 @@ function NavbarComponent() {
         {token ? (
           <Navbar.Brand href="/mainPage">Recommenders</Navbar.Brand>
         ) : (
-          <Navbar.Brand href="home">Recommenders</Navbar.Brand>
+          <Navbar.Brand href="/">Recommenders</Navbar.Brand>
         )}
 
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />

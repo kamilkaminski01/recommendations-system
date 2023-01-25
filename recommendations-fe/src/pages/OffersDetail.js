@@ -43,7 +43,7 @@ export default function OffersDetail(props) {
                 <span>Company: {dataProvider.company}</span>
               </div>
               <div className="mt-5">
-                <RecomenderComponent />
+                <RecomenderComponent id={productId} />
               </div>
             </div>
           </div>
