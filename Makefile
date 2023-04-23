@@ -4,44 +4,47 @@ build:
 run:
 	docker-compose up
 
+recreate:
+	docker-compose up --build --force-recreate
+
 initial-data:
-	docker-compose run django python manage.py initialize_data
+	docker-compose run --rm backend python manage.py initialize_data
 
 superuser:
-	docker-compose run django python manage.py createsuperuser
+	docker-compose run --rm backend python manage.py createsuperuser
 
 check:
-	docker-compose run --rm django isort --check-only .
-	docker-compose run --rm django black --check .
-	docker-compose run --rm django flake8 .
-	docker-compose run --rm django mypy .
+	docker-compose run --rm backend isort --check-only .
+	docker-compose run --rm backend black --check .
+	docker-compose run --rm backend flake8 .
+	docker-compose run --rm backend mypy .
 
 frontcheck:
-	docker-compose run react npm run --rm check
+	docker-compose run --rm frontend npm run --rm check
 
 isort:
-	docker-compose run --rm django isort .
+	docker-compose run --rm backend isort .
 
 black:
-	docker-compose run --rm django black .
+	docker-compose run --rm backend black .
 
 flake8:
-	docker-compose run --rm django flake8 .
+	docker-compose run --rm backend flake8 .
 
 mypy:
-	docker-compose run --rm django mypy .
+	docker-compose run --rm backend mypy .
 
 pytest:
-	docker-compose run --rm django pytest
+	docker-compose run --rm backend pytest
 
 pytest_module:
-	docker-compose run --rm django pytest $(module)/
+	docker-compose run --rm backend pytest $(module)/
 
 migrations:
-	docker-compose run django python manage.py makemigrations
+	docker-compose run --rm backend python manage.py makemigrations
 
 migrate:
-	docker-compose run django python manage.py migrate
+	docker-compose run --rm backend python manage.py migrate
 
 clear:
 	docker-compose down -v

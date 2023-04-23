@@ -4,39 +4,36 @@ version: "3.8"
 
 services:
   db:
-    container_name: db
     restart: always
-    image: postgres:14.1-alpine
+    image: postgres:13.3-alpine
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     env_file:
-      - ./.env
+      - .env
     ports:
       - "5432:5432"
 
-  django:
-    container_name: backend
+  backend:
     build:
-      context: ./recommendations-be
+      context: backend
     command: sh -c "python manage.py migrate &&
                     python manage.py runserver 0.0.0.0:8000"
     env_file:
-      - ./.env
+      - .env
     ports:
       - "8000:8000"
     volumes:
-      - ./recommendations-be:/app
+      - ./backend:/app
     depends_on:
       - db
 
-  react:
-    container_name: frontend
+  frontend:
     build:
-      context: ./recommendations-fe
+      context: frontend
     ports:
       - "3000:3000"
     volumes:
-      - ./recommendations-fe:/app
+      - ./frontend:/app
       - /app/node_modules
 
 volumes:

@@ -1,5 +1,5 @@
 {
-  "name": "recommenders",
+  "name": "frontend",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -37,7 +37,7 @@
     "lint --fix": "eslint --fix",
     "check": "npm run lint",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
-    "prepare": "cd .. && husky install recommendations-fe/.husky"
+    "prepare": "cd .. && husky install frontend/.husky"
   },
   "eslintConfig": {
     "extends": [
