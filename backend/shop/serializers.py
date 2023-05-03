@@ -27,7 +27,8 @@ class RewardListSerializer(serializers.ModelSerializer):
         image = Image.objects.filter(reward=reward).first()
         if not image:
             return None
-        return image.image.url
+        request = self.context.get("request")
+        return request.build_absolute_uri(image.image.url)
 
 
 class RewardDetailSerializer(serializers.ModelSerializer):

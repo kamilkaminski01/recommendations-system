@@ -12,7 +12,7 @@ class TestCompanyAdminGetAPIView(TestCase):
         super().setUp()
         self.client = Client()
         self.client_detail = Client()
-        self.url_detail = reverse("user_details", kwargs={"pk": 0})
+        self.url_detail = reverse("user_details")
         self.detailed_company_admin = CompanyAdmin.objects.create_user(
             email="krzysiek@uwb.pl",
             password="Krzysiek-123",

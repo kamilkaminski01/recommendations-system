@@ -13,7 +13,7 @@ class TestRecommenderGetAPIView(TestCase):
         self.client = Client()
         self.client_detail = Client()
         self.url = reverse("users_api")
-        self.url_detail = reverse("user_details", kwargs={"pk": 0})
+        self.url_detail = reverse("user_details")
         self.recommender = Recommender.objects.create_user(
             email="krzysiek@recommender.com",
             password="Krzysiek-123",

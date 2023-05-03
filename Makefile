@@ -1,3 +1,5 @@
+.PHONY: build run recreate initial-data superuser flush check frontcheck isort black flake8 mypy pytest pytest_module migrations migrate clear
+
 build:
 	docker-compose build
 
@@ -12,6 +14,9 @@ initial-data:
 
 superuser:
 	docker-compose run --rm backend python manage.py createsuperuser
+
+flush:
+	docker-compose run --rm backend python manage.py flush
 
 check:
 	docker-compose run --rm backend isort --check-only .
