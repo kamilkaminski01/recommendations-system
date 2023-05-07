@@ -1,7 +1,7 @@
 # Recommendations project
 
 This project is aimed at organizations that can leverage it
-for recruitment and advertisement. It allows the registered users
+for recruitment and advertisement. It allows registered users
 to invite potential customers for various rewards.
 
 ## Resources
@@ -28,7 +28,7 @@ for reproducible builds and consistent local development environments.
 The default [`docker-compose.yml`](docker-compose.yml) file is set up
 to support local development with code reload and debug mode.
 
-The [`Makefile`](Makefile) contains common commands that can be used to
+[`Makefile`](Makefile) contains common commands that can be used to
 build, run, and test the project. The most important commands include:
 - `build`: builds the project with Docker Compose.
 - `run`: runs the project with Docker Compose.
@@ -38,8 +38,6 @@ build, run, and test the project. The most important commands include:
 - `pytest_module module={module_name}`: runs backend unit tests in passed module
 - `clear`: stops the currently running services and removes the volumes.
 
-If `build` doesn't run, uncheck "Use Docker Compose V2" in your Docker Desktop app settings.
-
 When using a local Python environment, [`pre-commit`](https://pre-commit.com/)
 should be installed and ran on staged files to ensure that the code
 quality standards are met.
@@ -48,7 +46,7 @@ quality standards are met.
 
 After running the application, the following actions should be executed:
 
-Run `make initial-data` to initialize database with example data including:
+Run `make initial-data` to initialize the database with example data including:
   - global superuser (admin@admin.com)
   - recommenders (users):
     - first recommender (kamil@recommender.com)
@@ -64,8 +62,8 @@ Run `make initial-data` to initialize database with example data including:
     - third advertisement (Microsoft)
   - shop rewards:
     - first reward (iPhone 14 pro)
-    - second reward (Macbook pro M1)
-    - third reward (Karta upominkowa)
+    - second reward (MacBook Pro M1)
+    - third reward (Gift Card)
 
 #### Troubleshooting
 
@@ -84,7 +82,7 @@ used directly in order to build and run the project:
 git clone https://github.com/Dimateos12/Project-recommendations
 cd Project-recommendations/
 docker-compose build
-docker-compose run
+docker-compose up
 ```
 
 ## Code quality standards
