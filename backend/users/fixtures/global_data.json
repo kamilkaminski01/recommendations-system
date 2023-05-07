@@ -12,7 +12,6 @@
       "email": "admin@admin.com",
       "groups": [],
       "user_permissions": []
-
     }
   },
   {
@@ -154,8 +153,8 @@
     "model": "advertisements.advertisement",
     "pk": 1,
     "fields": {
-      "title": "Programista backend",
-      "description": "Zatrudnimy programiste backend w technologii Django",
+      "title": "Backend Developer",
+      "description": "We are looking for a backend developer in Django",
       "type": "RECRUITMENT",
       "reward_for_approval": 100,
       "company_id": 5
@@ -165,8 +164,8 @@
     "model": "advertisements.advertisement",
     "pk": 2,
     "fields": {
-      "title": "Ubezpieczenie na zycie",
-      "description": "Oferujemy ubezpieczenie na zycie w wysokosci 300zl rocznie",
+      "title": "Life Insurance",
+      "description": "We offer life insurance for the amount of 300zl per year",
       "type": "COMMERCIAL",
       "reward_for_approval": 150,
       "company_id": 6
@@ -176,8 +175,8 @@
     "model": "advertisements.advertisement",
     "pk": 3,
     "fields": {
-      "title": "Uzywane laptopy Apple",
-      "description": "Sprzedamy uzywane laptopy firmy Apple",
+      "title": "Apple Laptops",
+      "description": "We offer about 100 brand new Apple MacBooks including Pro and Air",
       "type": "COMMERCIAL",
       "reward_for_approval": 200,
       "company_id": 7
@@ -187,9 +186,10 @@
     "model": "shop.reward",
     "pk": 1,
     "fields": {
-      "title": "iPhone 14 pro",
+      "title": "iPhone 14 Pro",
       "cost": 4000,
-      "short_description": "Telefon Apple iPhone 14 Pro 256GB",
+      "short_description": "Apple iPhone 14 Pro 256GB",
+      "long_description": "Brand new Apple iPhone 14 Pro in the Space Black color with 256GB",
       "type": "PHYSICAL"
     }
   },
@@ -197,9 +197,10 @@
     "model": "shop.reward",
     "pk": 2,
     "fields": {
-      "title": "Macbook Pro M1",
+      "title": "MacBook Pro M1",
       "cost": 6000,
-      "short_description": "Laptop Apple Macbook Pro M1 512GB SSD i 16GB RAM",
+      "short_description": "Apple MacBook Pro M1 512GB SSD with 16GB RAM",
+      "long_description": "Brand new Apple MacBook Pro M1 in the Silver color with 16GB of RAM",
       "type": "PHYSICAL"
     }
   },
@@ -207,9 +208,10 @@
     "model": "shop.reward",
     "pk": 3,
     "fields": {
-      "title": "Karta upominkowa",
+      "title": "Gift Card",
       "cost": 200,
-      "short_description": "Wartosc bonu wynosi 200zl do wydania w sklepach biedronka",
+      "short_description": "Gift card to be spent in all biedronka stores",
+      "long_description": "The value of this gift card is 200zl and can be spent in all biedronka stores",
       "type": "DIGITAL"
     }
   }
