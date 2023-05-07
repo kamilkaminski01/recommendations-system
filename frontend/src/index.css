@@ -1,7 +1,14 @@
-.wrapper {
-  padding: 20px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.selecInput {
-  display: grid;
-  margin-top: 20px;
+
+a {
+  all: unset;
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
 }
