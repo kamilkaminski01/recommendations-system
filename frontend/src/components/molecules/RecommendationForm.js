@@ -28,8 +28,8 @@ export default function RecommendationForm(props) {
       .post(generatePath(ENDPOINTS.advertisementDetails, { id: props.id }), data)
       .then(() => {
         window.location.reload(true);
+        setOpen(false);
       });
-    setOpen(false);
   };
 
   return (

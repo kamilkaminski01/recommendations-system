@@ -9,12 +9,12 @@ import axiosDefault from "setup/axios/defaultInstance";
 
 export default function ProfilePage() {
   const [dataProvider, setDataProvider] = useState([]);
-  const [isAdmin, SetIsAdmin] = useState();
+  const [isStaff, setIsStaff] = useState();
 
   useEffect(() => {
     axiosDefault.get(ENDPOINTS.userDetails).then((response) => {
       setDataProvider(response.data);
-      response.data.is_staff ? SetIsAdmin(true) : SetIsAdmin(false);
+      response.data.is_staff ? setIsStaff(true) : setIsStaff(false);
     });
   }, []);
 
@@ -66,7 +66,7 @@ export default function ProfilePage() {
                   secondary={dataProvider.email}
                 />
               </ListItem>
-              {isAdmin ? (
+              {isStaff ? (
                 <>
                   <CandidatesTable />
                 </>
@@ -103,7 +103,7 @@ export default function ProfilePage() {
                 </>
               )}
               <ListItem alignItems="flex-start">
-                {isAdmin ? <AdvertisementForm /> : <></>}
+                {isStaff ? <AdvertisementForm /> : <></>}
                 <UpdateUserForm />
               </ListItem>
             </List>

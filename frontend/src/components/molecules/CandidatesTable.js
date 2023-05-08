@@ -69,7 +69,7 @@ export default function CandidatesTable() {
                   <TableCell>
                     <Button
                       size="small"
-                      onClick={(event) => handleAccept(dataProvider)}
+                      onClick={() => handleAccept(dataProvider)}
                       variant="outlined">
                       Accept
                     </Button>
@@ -77,7 +77,7 @@ export default function CandidatesTable() {
                   <TableCell>
                     <Button
                       size="small"
-                      onClick={(event) => handleDecline(dataProvider)}
+                      onClick={() => handleDecline(dataProvider)}
                       variant="outlined">
                       Decline
                     </Button>

@@ -25,13 +25,13 @@ export default function AdvertisementForm() {
     const data = {
       title: formData.get("title"),
       description: formData.get("description"),
-      type,
       reward_for_approval: formData.get("reward_for_approval"),
+      type,
     };
-    axiosDefault.post(ENDPOINTS.advertisements, data).then((response) => {
+    axiosDefault.post(ENDPOINTS.advertisements, data).then(() => {
       window.location.reload(true);
+      setOpen(false);
     });
-    setOpen(false);
   };
 
   return (
@@ -62,9 +62,11 @@ export default function AdvertisementForm() {
                 <FormControl style={{ minWidth: "195px" }}>
                   <InputLabel>Type</InputLabel>
                   <Select
+                    label="Type"
                     labelId="type"
                     id="type"
                     value={type}
+                    required
                     onChange={(event) => setType(event.target.value)}>
                     <MenuItem value="RECRUITMENT">Recruitment</MenuItem>
                     <MenuItem value="COMMERCIAL">Commercial</MenuItem>

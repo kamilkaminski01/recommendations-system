@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { generatePath } from "react-router-dom";
 import "./ShopPage.scss";
 import axiosDefault from "setup/axios/defaultInstance";
-import RedirectButton from "components/atoms/RedirectButton";
+import RedirectButton from "components/atoms/RedirectButton/RedirectButton";
 import Reward from "components/molecules/Reward/Reward";
 import { ENDPOINTS, PATHS } from "utils/consts";
 

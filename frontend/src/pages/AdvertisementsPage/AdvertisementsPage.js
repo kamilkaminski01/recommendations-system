@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./AdvertisementsPage.scss";
-import RedirectButton from "components/atoms/RedirectButton";
+import RedirectButton from "components/atoms/RedirectButton/RedirectButton";
 import Advertisement from "components/molecules/Advertisement/Advertisement";
 import axiosDefault from "setup/axios/authInstance";
 import { ENDPOINTS, PATHS } from "utils/consts";
