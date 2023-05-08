@@ -1,4 +1,4 @@
-# Recommendations project
+# Recommendations System
 
 This project is aimed at organizations that can leverage it
 for recruitment and advertisement. It allows registered users
@@ -72,7 +72,7 @@ Docker images:
 
 ```bash
 make clear
-docker-compose up --build --force-recreate
+docker compose up --build --force-recreate
 ```
 
 If `make` is not supported, the associated Docker Compose commands can be
@@ -81,8 +81,8 @@ used directly in order to build and run the project:
 ```bash
 git clone https://github.com/Dimateos12/Project-recommendations
 cd Project-recommendations/
-docker-compose build
-docker-compose up
+docker compose build
+docker compose up
 ```
 
 ## Code quality standards
