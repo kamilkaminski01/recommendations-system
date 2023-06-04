@@ -9,13 +9,15 @@ export const ENDPOINTS = {
 
   users: "users/",
   userDetails: "users/details/",
+  purchaseHistory: "users/purchase-history/",
   ranking: "recommenders/ranking/",
 
   advertisements: "advertisements/",
   advertisementDetails: "advertisements/details/:id/",
 
   rewards: "shop/rewards/",
-  reward: "shop/rewards/:id/",
+  rewardDetails: "shop/rewards/:id/",
+  purchaseReward: "shop/rewards/buy/",
 
   candidates: "candidates/",
   candidateUpdate: "candidates/update/:id/",

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Image, Reward
+from .models import Image, PurchaseHistory, Reward
 
 
 class ImageInline(admin.TabularInline):
@@ -13,4 +13,16 @@ class RewardAdmin(admin.ModelAdmin):
     list_display = ["title", "cost", "type"]
 
 
+class PurchaseHistoryAdmin(admin.ModelAdmin):
+    list_display = ["recommender", "reward", "points_spent"]
+    readonly_fields = [
+        "recommender",
+        "reward",
+        "purchase_date",
+        "points_spent",
+        "shipping_address",
+    ]
+
+
 admin.site.register(Reward, RewardAdmin)
+admin.site.register(PurchaseHistory, PurchaseHistoryAdmin)

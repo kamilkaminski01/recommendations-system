@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from "react";
-import "./Reward.scss";
+import "./RewardPage.scss";
 import { generatePath, useParams } from "react-router-dom";
 import axiosDefault from "setup/axios/defaultInstance";
 import { ENDPOINTS } from "utils/consts";
+import BuyForm from "components/molecules/BuyForm";
 
-export default function Reward() {
+export default function RewardPage() {
   const { id } = useParams();
   const [dataProvider, setDataProvider] = useState([]);
 
   useEffect(() => {
-    axiosDefault.get(generatePath(ENDPOINTS.reward, { id })).then((response) => {
+    axiosDefault.get(generatePath(ENDPOINTS.rewardDetails, { id })).then((response) => {
       setDataProvider(response.data);
     });
   }, [id]);
-  console.log(dataProvider.reward_images);
+
   return (
     <div className="reward-container">
       <div className="container product_data px-4 px-lg-5 my-5">
@@ -39,13 +40,7 @@ export default function Reward() {
             </div>
             <p className="lead">{dataProvider.long_description}</p>
             <div className="d-flex">
-              <button
-                className="btn btn-outline-dark flex-shrink-0 addToCart-btn"
-                value={1}
-                type="button">
-                <i className="bi-cart-fill me-1"></i>
-                Add to cart
-              </button>
+              <BuyForm id={id} title={dataProvider.title} cost={dataProvider.cost} />
             </div>
           </div>
         </div>

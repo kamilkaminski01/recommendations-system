@@ -6,8 +6,8 @@ import HomePage from "pages/HomePage/HomePage";
 import LoginForm from "components/molecules/LoginForm/LoginForm";
 import RegisterForm from "components/molecules/RegisterForm/RegisterForm";
 import RankingPage from "pages/RankingPage/RankingPage";
-import Reward from "components/molecules/Reward/Reward";
-import ShopPage from "pages/ShopPage/ShopPage";
+import RewardPage from "pages/RewardPage/RewardPage";
+import RewardShopPage from "pages/RewardShopPage/RewardShopPage";
 import AdvertisementsPage from "pages/AdvertisementsPage/AdvertisementsPage";
 import Advertisement from "components/molecules/Advertisement/Advertisement";
 import ProtectedRoutes from "components/atoms/ProtectedRoutes";
@@ -21,18 +21,18 @@ function App() {
       <Routes>
         <Route element={<SharedLayout />}>
           <Route element={<ProtectedRoutes />}>
-            <Route path={PATHS.reward} element={<Reward />} />
             <Route path={PATHS.advertisement} element={<Advertisement />} />
             <Route path={PATHS.advertisements} element={<AdvertisementsPage />} />
-            <Route element={<ShopPage />} path={PATHS.rewardShop} />
-            <Route element={<RankingPage />} path={PATHS.ranking} />
-            <Route element={<ProfilePage />} path={PATHS.profile} />
+            <Route path={PATHS.rewardShop} element={<RewardShopPage />} />
+            <Route path={PATHS.reward} element={<RewardPage />} />
+            <Route path={PATHS.ranking} element={<RankingPage />} />
+            <Route path={PATHS.profile} element={<ProfilePage />} />
           </Route>
 
-          <Route element={<LoginForm />} path={PATHS.login} />
-          <Route element={<RegisterForm />} path={PATHS.register} />
-          <Route element={<HomePage />} path={PATHS.home} />
-          <Route element={<AboutPage />} path={PATHS.about} />
+          <Route path={PATHS.login} element={<LoginForm />} />
+          <Route path={PATHS.register} element={<RegisterForm />} />
+          <Route path={PATHS.home} element={<HomePage />} />
+          <Route path={PATHS.about} element={<AboutPage />} />
         </Route>
       </Routes>
     </div>

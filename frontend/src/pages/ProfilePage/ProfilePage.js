@@ -6,6 +6,7 @@ import CandidatesTable from "components/molecules/CandidatesTable";
 import AdvertisementForm from "components/molecules/AdvertisementForm";
 import UpdateUserForm from "components/molecules/UpdateUserForm";
 import axiosDefault from "setup/axios/defaultInstance";
+import PurchaseHistoryTable from "components/molecules/PurchaseHistoryTable";
 
 export default function ProfilePage() {
   const [dataProvider, setDataProvider] = useState([]);
@@ -109,6 +110,7 @@ export default function ProfilePage() {
             </List>
           </Grid>
         </Grid>
+        <PurchaseHistoryTable />
       </div>
     </div>
   );

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { generatePath } from "react-router-dom";
-import "./ShopPage.scss";
+import "./RewardShopPage.scss";
 import axiosDefault from "setup/axios/defaultInstance";
 import RedirectButton from "components/atoms/RedirectButton/RedirectButton";
-import Reward from "components/molecules/Reward/Reward";
+import RewardPage from "pages/RewardPage/RewardPage";
 import { ENDPOINTS, PATHS } from "utils/consts";
 
-export default function ShopPage() {
+export default function RewardShopPage() {
   const [dataProvider, setDataProvider] = useState([]);
 
   useEffect(() => {
@@ -40,7 +40,7 @@ export default function ShopPage() {
                     <div className="text-center">
                       <RedirectButton
                         url={generatePath(PATHS.reward, { id: x.id })}
-                        component={<Reward />}
+                        component={<RewardPage />}
                         name="Open"
                         state={{ id: "1" }}
                       />

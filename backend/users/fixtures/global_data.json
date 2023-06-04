@@ -108,14 +108,16 @@
     "model": "recommenders.recommender",
     "pk": 2,
     "fields": {
-      "user_ptr": 2
+      "user_ptr": 2,
+      "current_points": 8000
     }
   },
   {
     "model": "recommenders.recommender",
     "pk": 3,
     "fields": {
-      "user_ptr": 3
+      "user_ptr": 3,
+      "current_points": 3000
     }
   },
   {

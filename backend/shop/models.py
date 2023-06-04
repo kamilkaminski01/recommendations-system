@@ -2,6 +2,8 @@ from textwrap import shorten
 
 from django.db import models
 
+from recommenders.models import Recommender
+
 from .utils import validate_file_extension
 
 
@@ -52,3 +54,45 @@ class Image(models.Model):
     class Meta:
         verbose_name = "Image"
         verbose_name_plural = "Images"
+
+
+class PurchaseHistory(models.Model):
+    recommender = models.ForeignKey(
+        Recommender,
+        on_delete=models.CASCADE,
+        related_name="recommender_purchase_histories",
+        verbose_name="recommender",
+    )
+    reward = models.ForeignKey(
+        Reward,
+        on_delete=models.CASCADE,
+        related_name="purchase_history_reward",
+        verbose_name="reward",
+    )
+    purchase_date = models.DateTimeField(
+        auto_now_add=True, verbose_name="purchase date"
+    )
+    points_spent = models.PositiveIntegerField(verbose_name="points spent")
+
+    class StatusChoices(models.TextChoices):
+        ORDERED = ("ORDERED",)
+        SENT = ("SENT",)
+        RECEIVED = ("RECEIVED",)
+
+    status = models.CharField(
+        max_length=8,
+        choices=StatusChoices.choices,
+        default=StatusChoices.ORDERED,
+        verbose_name="status",
+    )
+
+    shipping_address = models.TextField(
+        verbose_name="shipping address", null=True, blank=True
+    )
+
+    def __str__(self):
+        return f"{self.recommender}: {self.reward}"
+
+    class Meta:
+        verbose_name = "Purchase history"
+        verbose_name_plural = "Purchase histories"
