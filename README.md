@@ -1,12 +1,18 @@
-# Recommendations System
+<h1 align="center">
+  Recommendations System
+</h1>
 
 This project is aimed at organizations that can leverage it
 for recruitment and advertisement. It allows registered users
 to invite potential customers for various rewards.
 
+![demo](https://raw.githubusercontent.com/kamilkaminski01/recommendations-system/main/frontend/assets/images/demo1.png)
+
+![demo](https://raw.githubusercontent.com/kamilkaminski01/recommendations-system/main/frontend/assets/images/demo2.png)
+
 ## Resources
 
-Issue tracking is currently handled by
+Issue tracking is handled by
 [Jira](https://www.atlassian.com/pl/software/jira).
 
 The code repository is hosted on
